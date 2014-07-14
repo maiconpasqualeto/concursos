@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+
+<!-- ================================================ Form Bean Definitions -->
+
+    <form-beans>
+    	<form-bean name="inscricaoForm" type="org.apache.struts.action.DynaActionForm">
+    		<form-property name="numeroInscricao" type="java.lang.String" />
+    		<form-property name="codCargo" type="java.lang.String" />
+    		<form-property name="descricaoCargo" type="java.lang.String" />
+    		<form-property name="codLotacao" type="java.lang.String" />
+    		<form-property name="descricaoLotacao" type="java.lang.String" />
+    		<form-property name="nome" type="java.lang.String" />
+    		<form-property name="endereco" type="java.lang.String" />
+    		<form-property name="numero" type="java.lang.String" />
+    		<form-property name="bairro" type="java.lang.String" />
+    		<form-property name="complemento" type="java.lang.String" />
+    		<form-property name="cidade" type="java.lang.String" />
+    		<form-property name="uf" type="java.lang.String" />
+    		<form-property name="descricaoUf" type="java.lang.String" />
+    		<form-property name="cep" type="java.lang.String" />
+    		<form-property name="telefone" type="java.lang.String" />
+    		<form-property name="ddd" type="java.lang.String" />
+    		<form-property name="nomePai" type="java.lang.String" />
+    		<form-property name="nomeMae" type="java.lang.String" />
+    		<form-property name="dataNascimentoStr" type="java.lang.String" />
+    		<form-property name="localNascimento" type="java.lang.String" />
+    		<form-property name="ufNascimento" type="java.lang.String" />
+    		<form-property name="descricaoUfNascimento" type="java.lang.String" />       		
+    		<form-property name="codEstadoCivil" type="java.lang.String" />
+    		<form-property name="descricaoEstadoCivil" type="java.lang.String" />   
+    		<form-property name="possuiDeficiencia" type="java.lang.Boolean" initial="false"/>
+    		<form-property name="deficiencia" type="java.lang.String" />
+    		<form-property name="cpf" type="java.lang.String" />
+    		<form-property name="identidadeTipo" type="java.lang.String" />
+    		<form-property name="documentoIdentidade" type="java.lang.String" />
+    		<form-property name="identidadeNumero" type="java.lang.String" />
+    		<form-property name="identidadeExpedicao" type="java.lang.String" />
+    		<form-property name="identidadeOrgaoExpedidor" type="java.lang.String" />
+    		<form-property name="senha" type="java.lang.String" />
+    		<form-property name="cadastroemail" type="java.lang.String" />
+    		<form-property name="sexo" type="java.lang.String" />
+    		
+    		<form-property name="codConcurso" type="java.lang.String" />
+    		<form-property name="nomeConcurso" type="java.lang.String" />
+    		<form-property name="prefeitura" type="java.lang.String" />
+    		
+    		<form-property name="codFuncao" type="java.lang.String" />
+    		<form-property name="descricaoFuncao" type="java.lang.String" />
+    		
+    		<form-property name="pagamentoNome" type="java.lang.String" />
+    		<form-property name="pagamentoBanco" type="java.lang.String" />
+    		<form-property name="pagamentoAgencia" type="java.lang.String" />
+    		<form-property name="pagamentoConta" type="java.lang.String" />
+    		    		
+    	</form-bean>
+    	
+    	<form-bean name="excelInscricaoForm" type="org.apache.struts.action.DynaActionForm">
+    		<form-property name="numeroInscricao" type="java.lang.String" />
+    		<form-property name="codCargo" type="java.lang.String" />
+    		<form-property name="descricaoCargo" type="java.lang.String" />
+    		<form-property name="codLotacao" type="java.lang.String" />
+    		<form-property name="descricaoLotacao" type="java.lang.String" />
+    		<form-property name="nome" type="java.lang.String" />
+    		<form-property name="endereco" type="java.lang.String" />
+    		<form-property name="numero" type="java.lang.String" />
+    		<form-property name="bairro" type="java.lang.String" />
+    		<form-property name="complemento" type="java.lang.String" />
+    		<form-property name="cidade" type="java.lang.String" />
+    		<form-property name="uf" type="java.lang.String" />
+    		<form-property name="descricaoUf" type="java.lang.String" />
+    		<form-property name="cep" type="java.lang.String" />
+    		<form-property name="telefone" type="java.lang.String" />
+    		<form-property name="ddd" type="java.lang.String" />
+    		<form-property name="nomePai" type="java.lang.String" />
+    		<form-property name="nomeMae" type="java.lang.String" />
+    		<form-property name="dataNascimentoStr" type="java.lang.String" />
+    		<form-property name="localNascimento" type="java.lang.String" />
+    		<form-property name="ufNascimento" type="java.lang.String" />
+    		<form-property name="descricaoUfNascimento" type="java.lang.String" />
+    		<form-property name="codEstadoCivil" type="java.lang.String" />
+    		<form-property name="descricaoEstadoCivil" type="java.lang.String" />
+    		<form-property name="possuiDeficiencia" type="java.lang.String"/>
+    		<form-property name="deficiencia" type="java.lang.String" />
+    		<form-property name="cpf" type="java.lang.String" />
+    		<form-property name="identidadeTipo" type="java.lang.String" />
+    		<form-property name="documentoIdentidade" type="java.lang.String" />
+    		<form-property name="identidadeNumero" type="java.lang.String" />
+    		<form-property name="identidadeExpedicao" type="java.lang.String" />
+    		<form-property name="identidadeUf" type="java.lang.String" />
+    		<form-property name="identidadeOrgaoExpedidor" type="java.lang.String" />
+    		<form-property name="email" type="java.lang.String" />
+    		<form-property name="sexo" type="java.lang.String" />
+    		<form-property name="codMunicipioIbge" type="java.lang.String" />
+    	</form-bean>
+    	
+    	<form-bean name="cadastroForm" type="org.apache.struts.action.DynaActionForm">
+    		<form-property name="codCandidato" type="java.lang.Integer" />    		
+    		<form-property name="nome" type="java.lang.String" />
+    		<form-property name="cpf" type="java.lang.String" />
+    		<form-property name="email" type="java.lang.String" />
+    		<form-property name="senha" type="java.lang.String" />
+    		<form-property name="confirmaSenha" type="java.lang.String" />
+
+    		<!-- temporário -->
+    		<form-property name="login" type="java.lang.String" />
+    		
+    		<form-property name="codConcurso" type="java.lang.String" />
+    		<form-property name="nomeConcurso" type="java.lang.String" />
+    		<form-property name="prefeitura" type="java.lang.String" />
+    		
+    	</form-bean>
+    	
+    	<form-bean name="jaCadastradoForm" type="org.apache.struts.action.DynaActionForm">
+    		<form-property name="cpf" type="java.lang.String" />
+    		<form-property name="senha" type="java.lang.String" />
+    		<form-property name="nome" type="java.lang.String" />
+    		<form-property name="codCandidato" type="java.lang.Integer" />
+    	</form-bean>
+    	
+    	<form-bean name="excelEntradaForm" type="org.apache.struts.action.DynaActionForm">
+    		<form-property name="cpf" type="java.lang.String" />
+    		<form-property name="nome" type="java.lang.String" />
+    	</form-bean>
+    	
+    	<form-bean name="loginForm" type="org.apache.struts.action.DynaActionForm">
+    		<form-property name="usuario" type="java.lang.String" />
+    		<form-property name="senha" type="java.lang.String" />
+    	</form-bean>
+    	
+    	<form-bean name="senhaForm" type="org.apache.struts.action.DynaActionForm">
+    		<form-property name="codConcurso" type="java.lang.Integer" />
+    		<form-property name="senha" type="java.lang.String" />
+    	</form-bean>
+    	
+    	<form-bean name="opcaoForm" type="org.apache.struts.action.DynaActionForm">
+    		<form-property name="concursos" type="java.util.List" />
+    		<form-property name="codConcurso" type="java.lang.Integer" />
+    	</form-bean>
+    </form-beans>
+
+
+<!-- ========================================= Global Exception Definitions -->
+
+    <global-exceptions>
+        <!-- sample exception handler
+        <exception
+            key="expired.password"
+            type="app.ExpiredPasswordException"
+            path="/changePassword.jsp"/>
+        end sample -->
+    </global-exceptions>
+
+
+<!-- =========================================== Global Forward Definitions -->
+
+    <global-forwards>
+        <!-- Default forward to "Welcome" action -->
+        <!-- Demonstrates using index.jsp to forward -->
+        <forward
+            name="entrada"
+            path="/inicial.do"/>
+    </global-forwards>
+
+
+<!-- =========================================== Action Mapping Definitions -->
+
+    <action-mappings>
+    
+        <action    	 	
+           path="/inicial"
+           forward="/jsp/entrada.jsp"/>
+         
+        <action    	 	
+           path="/excel/inicial"
+           forward="/excel/entrada.jsp"/>
+    	
+    	<action attribute="opcaoForm"
+		   		name="opcaoForm"
+				parameter="acao"
+				path="/opcao"
+				scope="request"
+				type="maicon.concursos.action.OpcaoAction"
+				input="/jsp/opcao.jsp"
+				validate="false">
+            <forward name="opcao" path="/jsp/opcao.jsp" />
+            <forward name="entrada" path="/jsp/entrada.jsp" />
+            <forward name="fechado" path="/encerramento.jsp" />
+            <forward name="aguardando" path="/jsp/aguardando.jsp" />
+            <forward name="temsenha" path="/jsp/temsenha.jsp" />
+        </action>
+         
+		<action attribute="inscricaoForm"
+				name="inscricaoForm"
+				parameter="acao"
+				path="/efetuaInscricao"
+				scope="request"
+				type="maicon.concursos.action.InscricaoAction"
+				input="/jsp/inscricao.jsp"
+				validate="true">
+			<forward name="sucesso" path="/jsp/confirmacao.jsp" />
+			<forward name="impressao" path="/jsp/fichaimpressao.jsp" />
+			<forward name="abrirFicha" path="/jsp/inscricao.jsp" />
+			<forward name="voltar" path="/opcao.do?acao=entrada" />
+			<forward name="inicio" path="/inicial.do" />
+		</action>
+		
+		<action attribute="cadastroForm"
+				name="cadastroForm"
+				parameter="acao"
+				path="/cadastro"
+				scope="request"
+				type="maicon.concursos.action.CadastroAction"
+				input="/jsp/entrada.jsp"
+				validate="true">			
+			<forward name="sucesso" path="/efetuaInscricao.do?acao=abreFicha" />
+		</action>
+		
+		<action attribute="inscricaoForm"
+				name="inscricaoForm"
+				parameter="acao"
+				path="/jaCadastrado"
+				scope="request"
+				type="maicon.concursos.action.JaCadastradoAction"
+				input="/jsp/entrada.jsp"
+				validate="true">			
+			<forward name="sucesso" path="/jsp/confirmacao.jsp" />
+		</action>
+		
+		<!-- EXCEL -->
+		
+		<action attribute="excelEntradaForm"
+				name="excelEntradaForm"
+				parameter="acao"
+				path="/excelprocessaentrada"
+				scope="request"
+				type="maicon.excel.action.ExProcessaEntradaAction"
+				input="/excel/entrada.jsp"
+				validate="true">			
+			<forward name="confirma" path="/excelinscricao.do?acao=abreConfirmacao" />
+			<forward name="nova" path="/excelinscricao.do?acao=abreNova" />
+			<forward name="erro" path="/excel/entrada.jsp" />
+			<forward name="impressao2008" path="/excelinscricao.do?acao=inscricao2008JaEfetuada" />
+			<forward name="impressaoBoleto" path="/excelinscricao.do?acao=inscricaoJaEfetuada" />			
+		</action>
+		
+		<action attribute="excelInscricaoForm"
+				name="excelInscricaoForm"
+				parameter="acao"
+				path="/excelinscricao"
+				scope="request"
+				type="maicon.excel.action.ExInscricaoAction"
+				input="/excel/excelinscricao.jsp"
+				validate="true">			
+			<forward name="confirmacao" path="/excel/confirmacaoinscricao.jsp" />
+			<forward name="nova" path="/excel/excelinscricao.jsp" />			
+			<forward name="confirmada" path="/excel/inscricaoconfirmada.jsp" />
+			<forward name="sucesso" path="/excel/novainscricaoconfirmada.jsp" />
+			<forward name="impressao" path="/excel/excelfichaimpressao.jsp" />
+			<forward name="impressaoConfirmacao" path="/excel/fichaimpressaoconfirmacao.jsp" />			
+			<forward name="voltar" path="/excel/inicial.do" />
+		</action>
+		
+		<action attribute="loginForm"
+				name="loginForm"
+				parameter="acao"
+				path="/logar"
+				scope="request"
+				type="maicon.concursos.action.LogarAction"
+				input="/jsp/login.jsp"
+				validate="true">
+			<forward name="sucesso" path="/jsp/entrada.jsp" />
+			<forward name="voltar" path="/jsp/login.jsp" />
+		</action>
+		
+		<action attribute="senhaForm"
+				name="senhaForm"
+				parameter="acao"
+				path="/senha"
+				scope="request"
+				type="maicon.concursos.action.SenhaAction"
+				input="/jsp/temsenha.jsp"
+				validate="true">
+			<forward name="sucesso" path="/jsp/entrada.jsp" />
+			<forward name="voltar" path="/opcao.do?acao=entrada" />
+		</action>
+		
+		
+    </action-mappings>
+
+
+<!-- ======================================== Message Resources Definitions -->
+
+    <message-resources parameter="MessageResources" />
+
+
+<!-- =============================================== Plug Ins Configuration -->
+
+  <!-- =================================================== Validator plugin -->
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+        property="pathnames"
+        value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml"/>
+  </plug-in>
+
+</struts-config>
+

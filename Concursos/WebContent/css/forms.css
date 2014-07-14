@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+form.AppForm{
+	display:block;
+	margin: 20px;
+}
+form.AppForm label{
+	display:block;
+	color:#003366;
+	font-weight:bold;
+}
+form.AppForm .required label{
+	color:#990000;
+}
+form.AppForm .FormLine0{
+}
+form.AppForm .FormLine1{
+	background:#F2F7FB;
+}
+form.AppForm label.inputLabel{
+	display:inline;
+	color:#545454;
+}
+
+form.AppForm td{
+	padding: 5px;
+	vertical-align: top;
+}
+
+table.tabela td{	
+	font-size : 70%;
+  	font-family : Verdana;
+}
+
+table.titulo td{	
+	font-size : 100%;
+	padding: 0 0 0 0;
+}
+
+table.texto td{	
+	font-size : 77%;
+}
+
+table.tabela label.inputLabel{
+	display:inline;
+	color: black;
+}
+
+table.tabela label{
+	//display:block;
+	color: black;
+}
+
+form.impressao {
+	font-family: cursive;
+	font-size: 12pt;
+}
+
+form.impressao label{
+	display:block;
+	font-weight:bold;
+}
+
+form.impressao td{
+	padding: 4px;
+	vertical-align: top;
+}

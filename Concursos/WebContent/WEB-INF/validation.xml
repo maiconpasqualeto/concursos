@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+    <formset>
+		<form name="inscricaoForm">
+			<field property="codCargo" depends="required">
+  				<arg key="inscricao.cargo"/>
+  			</field>
+  			<field property="codLotacao" depends="required">
+  				<arg key="label.lotacao"/>
+  			</field>
+  			<field property="nome" depends="required">
+  				<arg key="inscricao.nome"/>
+  			</field>
+  			<field property="numero" depends="required">
+  				<arg key="inscricao.numero"/>
+  			</field>
+  			<field property="bairro" depends="required">
+  				<arg key="inscricao.bairro"/>
+  			</field>
+  			<field property="cidade" depends="required">
+  				<arg key="inscricao.cidade"/>
+  			</field>
+  			<field property="telefone" depends="required,mask">
+  				<arg key="inscricao.telefone"/>
+		    	<msg name="mask" key="inscricao.telefone.invalido"/>
+			    <var>
+			        <var-name>mask</var-name>
+			        <var-value>^\d{0,}$</var-value>
+			    </var>	
+  			</field>
+  			<field property="ddd" depends="required,mask">
+  				<arg key="inscricao.ddd"/>
+  				<msg name="mask" key="inscricao.ddd.invalido"/>
+			    <var>
+			        <var-name>mask</var-name>
+			        <var-value>^\d{0,}$</var-value>
+			    </var>
+  			</field>
+  			<field property="cep" depends="required,mask">
+  				<arg key="inscricao.cep"/>
+  				<msg name="mask" key="inscricao.cep.invalido"/>
+			    <var>
+			        <var-name>mask</var-name>
+			        <var-value>^\d{0,}$</var-value>
+			    </var>
+  			</field>
+  			<field property="nomeMae" depends="required">
+  				<arg key="inscricao.nomeMae"/>
+  			</field>
+  			<field property="sexo" depends="required">
+  				<arg key="inscricao.sexo"/>
+  			</field>
+  			<field property="dataNascimentoStr" depends="date,required">
+  				<arg key="inscricao.dataNascimento"/>
+  			</field>
+  			<field property="ufNascimento" depends="required">
+  				<arg key="inscricao.ufNascimento"/>
+  			</field>
+  			<field property="codEstadoCivil" depends="required">
+  				<arg key="inscricao.estadoCivil"/>
+  			</field>
+  			<field property="localNascimento" depends="required">
+  				<arg key="inscricao.localNascimento"/>
+  			</field>
+  			<field property="identidadeNumero" depends="required">
+  				<arg key="inscricao.identidadeNumero"/>
+  			</field>
+  			<field property="identidadeOrgaoExpedidor" depends="required">
+  				<arg key="inscricao.identidadeOrgaoExpedidor"/>
+  			</field> 
+  			<field property="identidadeTipo" depends="required">
+  				<arg key="inscricao.tipoDocumento"/>
+  			</field>
+  			<field property="codFuncao" depends="required">
+  				<arg key="label.funcao"/>
+  			</field>
+  			<field property="cadastroemail" depends="email">
+  				<arg key="cadastro.email"/>
+  			</field>
+		</form>
+		
+        <form name="cadastroForm">
+			<field property="nome" depends="required">
+  				<arg key="cadastro.nome"/>
+  			</field>
+  			<field property="cpf" depends="required,mask">
+  				<arg key="cadastro.cpf"/>
+  				<msg name="mask" key="excel.cadastro.cpf.somente.numeros"/>
+			    <var>
+			        <var-name>mask</var-name>
+			        <var-value>^\d{0,}$</var-value>
+			    </var>
+  			</field>
+  			<field property="email" depends="email">
+  				<arg key="cadastro.email"/>
+  			</field>
+		</form>
+		<form name="jaCadastradoForm">
+  			<field property="cpf" depends="required">
+  				<arg key="cadastro.cpf"/>
+  			</field>
+  			<field property="senha" depends="required">
+  				<arg key="cadastro.senha"/>
+  			</field>
+		</form>
+		<form name="excelEntradaForm">
+  			<field property="cpf" depends="required,mask">
+  				<arg key="excel.entrada.cpf"/>
+  				<msg name="mask" key="excel.cadastro.cpf.somente.numeros"/>
+			    <var>
+			        <var-name>mask</var-name>
+			        <var-value>^\d{0,}$</var-value>
+			    </var>
+  			</field>
+  			<field property="nome" depends="required">
+  				<arg key="excel.entrada.nome"/>
+  			</field>
+		</form>
+		<form name="excelInscricaoForm">
+			<field property="codCargo" depends="required">
+  				<arg key="inscricao.cargo"/>
+  			</field>
+  			<field property="nome" depends="required">
+  				<arg key="inscricao.nome"/>
+  			</field>
+  			<field property="numero" depends="required">
+  				<arg key="inscricao.numero"/>
+  			</field>
+  			<field property="bairro" depends="required">
+  				<arg key="inscricao.bairro"/>
+  			</field>
+  			<field property="cidade" depends="required">
+  				<arg key="inscricao.cidade"/>
+  			</field>
+  			<field property="telefone" depends="required,mask">
+  				<arg key="inscricao.telefone"/>
+		    	<msg name="mask" key="inscricao.telefone.invalido"/>
+			    <var>
+			        <var-name>mask</var-name>
+			        <var-value>^\d{0,}$</var-value>
+			    </var>	
+  			</field>
+  			<field property="ddd" depends="required,mask">
+  				<arg key="inscricao.ddd"/>
+  				<msg name="mask" key="inscricao.ddd.invalido"/>
+			    <var>
+			        <var-name>mask</var-name>
+			        <var-value>^\d{0,}$</var-value>
+			    </var>
+  			</field>
+  			<field property="cep" depends="required,mask">
+  				<arg key="inscricao.cep"/>
+  				<msg name="mask" key="inscricao.cep.invalido"/>
+			    <var>
+			        <var-name>mask</var-name>
+			        <var-value>^\d{0,}$</var-value>
+			    </var>
+  			</field>
+   			<field property="sexo" depends="required">
+  				<arg key="inscricao.sexo"/>
+  			</field>
+  			<field property="dataNascimentoStr" depends="date,required">
+  				<arg key="inscricao.dataNascimento"/>
+  			</field>
+  			<field property="ufNascimento" depends="required">
+  				<arg key="inscricao.ufNascimento"/>
+  			</field>
+  			<field property="codEstadoCivil" depends="required">
+  				<arg key="inscricao.estadoCivil"/>
+  			</field>
+  			<field property="localNascimento" depends="required">
+  				<arg key="inscricao.localNascimento"/>
+  			</field>
+  			<field property="identidadeNumero" depends="required">
+  				<arg key="inscricao.identidadeNumero"/>
+  			</field>
+  			<field property="identidadeOrgaoExpedidor" depends="required">
+  				<arg key="inscricao.identidadeOrgaoExpedidor"/>
+  			</field> 
+  			<field property="identidadeTipo" depends="required">
+  				<arg key="inscricao.tipoDocumento"/>
+  			</field>
+  			<field property="identidadeUf" depends="required">
+  				<arg key="inscricao.identidadeUf"/>
+  			</field>
+  			<field property="possuiDeficiencia" depends="required">
+  				<arg key="excel.cadastro.possuiDeficiencia"/>
+  			</field>
+		</form>
+		
+		<form name="loginForm">
+			<field property="usuario" depends="required">
+  				<arg key="login.usuario"/>
+  			</field>
+  			<field property="senha" depends="required">
+  				<arg key="login.senha"/>
+  			</field>
+		</form>
+		
+		<form name="senhaForm">
+			<field property="senha" depends="required">
+  				<arg key="login.senha"/>
+  			</field>
+		</form>
+		
+    </formset>
+
+</form-validation>

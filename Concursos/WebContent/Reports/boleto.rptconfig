@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__codigoBoleto_1936_0</property>
+            <property name="value">2618</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__codigoBarra_1973_1</property>
+            <property name="value">86630000000200003434792000000000000000000008</property>
+        </structure>
+        <structure>
+            <property name="name">codigoBarra_1973_2</property>
+            <property name="value">86630000000200003434792000000000000000000008</property>
+        </structure>
+        <structure>
+            <property name="name">codigoBarra_1973_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">codigoBoleto_1936_3</property>
+            <property name="value">2618</property>
+        </structure>
+        <structure>
+            <property name="name">codigoBoleto_1936_type_</property>
+            <property name="value">integer</property>
+        </structure>
+    </list-property>
+</report>

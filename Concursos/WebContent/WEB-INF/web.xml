@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app id="WebApp_ID">
+	<display-name>Concursos</display-name>
+	
+	<filter>
+		<filter-name>seguranca</filter-name>
+		<filter-class>maicon.concursos.servlet.FiltroSeguranca</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>seguranca</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+   		<listener-class>maicon.concursos.listener.ConcursosListener</listener-class>
+	</listener>
+   	
+	
+	<!-- Standard Action Servlet Configuration -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>
+			org.apache.struts.action.ActionServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+	    <load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<!-- configuração de um servlet -->
+	<servlet>
+	  <servlet-name>TesteServlet</servlet-name>
+	  <servlet-class>maicon.concursos.servlet.TesteServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>listaLotacoes</servlet-name>
+		<servlet-class>maicon.concursos.action.ajax.AjaxListaLotacoes</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>listaFuncoes</servlet-name>
+		<servlet-class>maicon.concursos.action.ajax.AjaxListaFuncoes</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<servlet>
+	  <servlet-name>buscaCep</servlet-name>
+	  <servlet-class>maicon.concursos.action.ajax.AjaxBuscaCep</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>WebReport</servlet-name>
+		<servlet-class>maicon.birt.WebReport</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	  <servlet-name>TesteServlet</servlet-name>
+	  <url-pattern>/TesteServlet</url-pattern>
+	</servlet-mapping>
+	
+	 <!-- Standard Action Servlet Mapping -->
+	 <servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	 </servlet-mapping>
+	
+	<servlet-mapping>
+	 	<servlet-name>listaLotacoes</servlet-name>
+	 	<url-pattern>/listaLotacoes.ajax</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	 	<servlet-name>listaFuncoes</servlet-name>
+	 	<url-pattern>/listaFuncoes.ajax</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	 	<servlet-name>buscaCep</servlet-name>
+	 	<url-pattern>/buscaCep.ajax</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>WebReport</servlet-name>
+		<url-pattern>/run</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- Configuração de um Pool de conexão do tomcat, declarado no arquivo context.xml -->
+	<!--  <resource-ref>  
+   		<description>Banco Concursos</description>  
+   		<res-ref-name>jdbc/ConcursosDS</res-ref-name>  
+   		<res-type>javax.sql.DataSource</res-type>  
+   		<res-auth>Container</res-auth>  
+   	</resource-ref> -->
+
+   	
+</web-app>
