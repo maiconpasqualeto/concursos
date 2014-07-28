@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.14" id="1">
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
-    <property name="createdBy">Eclipse BIRT Designer Version 4.2.2.v201301221637 Build &lt;4.2.2.v20130206-1509></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <property name="units">mm</property>
     <method name="initialize"><![CDATA[importPackage(Packages.br.com.dsf.birt);
@@ -596,8 +596,10 @@ where cod_boleto_bancario = ?]]></xml-property>
                                                 <property name="paddingTop">1pt</property>
                                                 <property name="verticalAlign">bottom</property>
                                                 <image id="1918">
+                                                    <property name="height">40px</property>
+                                                    <property name="width">137px</property>
                                                     <property name="source">embed</property>
-                                                    <property name="imageName">caixa1.jpg</property>
+                                                    <property name="imageName">banco-do-brasil.jpg</property>
                                                 </image>
                                             </cell>
                                             <cell id="1916">
@@ -677,7 +679,7 @@ where cod_boleto_bancario = ?]]></xml-property>
                                                 <property name="borderRightWidth">thin</property>
                                                 <text id="1955">
                                                     <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[PREFEITURA DE PONTA PORÃ]]></text-property>
+                                                    <text-property name="content"><![CDATA[VALE CONSULTORIA]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="70">
@@ -690,6 +692,11 @@ where cod_boleto_bancario = ?]]></xml-property>
                                                 <property name="borderRightColor">#000000</property>
                                                 <property name="borderRightStyle">solid</property>
                                                 <property name="borderRightWidth">thin</property>
+                                                <property name="textAlign">center</property>
+                                                <text id="1975">
+                                                    <property name="contentType">auto</property>
+                                                    <text-property name="content"><![CDATA[3496/70875-5]]></text-property>
+                                                </text>
                                             </cell>
                                             <cell id="71">
                                                 <property name="borderBottomColor">#000000</property>
@@ -1209,8 +1216,10 @@ Não receber após vencimento]]></text-property>
                                                 <property name="paddingTop">1pt</property>
                                                 <property name="verticalAlign">bottom</property>
                                                 <image id="1919">
+                                                    <property name="height">40px</property>
+                                                    <property name="width">137px</property>
                                                     <property name="source">embed</property>
-                                                    <property name="imageName">caixa1.jpg</property>
+                                                    <property name="imageName">banco-do-brasil.jpg</property>
                                                 </image>
                                             </cell>
                                             <cell id="1521">
@@ -1225,7 +1234,7 @@ Não receber após vencimento]]></text-property>
                                                     <property name="fontSize">14pt</property>
                                                     <property name="textAlign">center</property>
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[<B>104-0</B>]]></text-property>
+                                                    <text-property name="content"><![CDATA[<B>001-9</B>]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1044">
@@ -1498,7 +1507,7 @@ Não receber após vencimento]]></text-property>
                                                 <property name="verticalAlign">middle</property>
                                                 <text id="1910">
                                                     <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[PREFEITURA DE PONTA PORÃ]]></text-property>
+                                                    <text-property name="content"><![CDATA[VALE CONSULTORIA]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1114">
@@ -1511,6 +1520,11 @@ Não receber após vencimento]]></text-property>
                                                 <property name="paddingTop">0pt</property>
                                                 <property name="paddingBottom">0pt</property>
                                                 <property name="paddingRight">10pt</property>
+                                                <text id="1976">
+                                                    <property name="textAlign">center</property>
+                                                    <property name="contentType">auto</property>
+                                                    <text-property name="content"><![CDATA[3496/70875-5]]></text-property>
+                                                </text>
                                             </cell>
                                         </row>
                                         <row id="1747">
@@ -1983,7 +1997,7 @@ Não receber após vencimento]]></text-property>
                                                 <text id="1972">
                                                     <property name="textAlign">center</property>
                                                     <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[01]]></text-property>
+                                                    <text-property name="content"><![CDATA[18]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1556">
@@ -3182,7 +3196,45 @@ CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF>]]></text-pr
                 7b7ZIlsXFUlxpHEGUxiCvyGFH6VrFKm/UbSwI4EgnTaQpDcn5nndFrura0rRbpoUkgpPZ17Ecu6vQcV7
                 tEVl7hUnrG0r4VDBGRnBFfrSk5OUb9bGtR2LijH3o73FKUqrLc5pSlEIpSlEIpSlEIpSlEIpSlEIpSlE
                 JxSlKIRSlKIRSlKITmlKUQn/2Q==
-            </property>
+</property>
+        </structure>
+        <structure>
+            <property name="name">banco-do-brasil.jpg</property>
+            <property name="data">
+                /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwg
+                JC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIy
+                MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoAIkDASIAAhEBAxEB/8QA
+                GwABAAIDAQEAAAAAAAAAAAAAAAUHAQQGAwL/xAAwEAABAwMCBQIEBwEBAAAAAAABAgMEAAUREiEGEzFB
+                UWFxBxQigRUyQlJyocEWkf/EABsBAAEFAQEAAAAAAAAAAAAAAAACAwQFBwEG/8QAMBEAAQMDAQUFCAMA
+                AAAAAAAAAQACEQMEITEFBhJBURMyQnHwFSJSYYGhsfEUFiP/2gAMAwEAAhEDEQA/ALirClBKSpRAA3JP
+                avOS98tGdf5bjvLSVaGk6lKx2A7mqR4q44uV+W7FSFQ4QJSWAcKVj95/zpWZ7t7sXW3axbRIaxveceXk
+                NSft1IT93eMtmy7JOgVlL+IPD6LwLeZeR0MkDLQV41f709a6CVcIcKEZkmS03GA1c1StiO2POfSqkU9w
+                rB4Pbiz7Q+i5uYUUawHs42Xqx9KT2SR9j1qHlOG1mPbZ2ufbiQ6iM4S28xk9Mb6FY7bg5z3r1/8ARrO6
+                c0W/aM4SQeLhPaBurmEGB9cdDghQfaNRgPHBnpOJ5FXbaLtHvdvTOia+QtSkpKxgnBxnH2rfqLtrkC38
+                PMvNx1W+EhrXy3k6C2O+oeaQuJLNcZAjxLnGeePRCXBk+w71ndxZvfVqvtqbuzaTymAPiIxMaq1ZUAa0
+                PIkqUpWM1mq9OpSlKEJSlYJCQSTgDc0IWaVDx+KrDKkIYZu0RbqzhKeYASfFTFP17WvbkCswtJ6gj8pL
+                Xtd3TKUpSmEpKUpQheUmQzEjuSJDiWmW0lS1qOAkVUXEV+iX28qdsNvZQ6ygqeuTqdOBnGrB2GNsKP1b
+                jGNqtDiC5os1il3BbPOSyjPLzjVk4wfTeqzicI3i6xHL1DhItE3UVNsJJSh5BzkBJ/L4wdlA9B30Hcmn
+                aW7Kl/dnhzwNJdDSTqHNHvEZE6tEyRiVV7QL3kUmZ5nGfoVz0dWlxxVtWHH0nVIusgkBBPdGenoTlZ7Y
+                6VI8L32wWO9ByTFcl56z3BlSV53UlB/T6n6u+2cDc/6SS3ZXOFnOGWvxJbhTyw1hJJ/XpH6vBG3foMVM
+                8LfDJtkImX4Bx3qmKk/Sn+R7n06e9e82ntOzo2db2tLGuw0NeC6o3k4FvLoMMGkFVlGjUdUb2GY1kYHy
+                z+11HEkuPO4GuMqK6l1hyKpSFpOQRVeWuY1Hn8LPypcWU0y2tXLjAJcjgDJLh31Yxnt0NXAY7Ko/ILTZ
+                Z06eWUjTjxjpivBu129lK0tQYyA4NKwllI1DwdtxWXbJ3ht7C2qWxplwc5xGRMOaWRMTIBmRE6aK5r2r
+                qrw+dI/Mqr4d1nx3JE2UuWhu8wJS0hzUEIcAUpGg/wAcYx5rWFxukJi3QPmZCn0sLmMuayStDjGrHrpU
+                Ff1VuuQorrTbTkZlbbYwhCmwQnbGw7bbU+SihxpwRmdbSdLauWMoHgHsParIb42slxtRmcSIkAhvLk08
+                J6hNfwH/AB+uf3yqskSIUXhPn226S/xR62NLkttPKWnBWkLWrrhYyR1G1TMdbUa7cSRbVIUu2otXMGh4
+                uJQ7pOCDk4JGT9q7hm3QY4dDEOO0HdnNDSU6/fA3696yxAhxmVssRWGml51IbbCUqz1yAN6i196KNSm9
+                nZuMknJB1LDnHh4SG+Z8kttm4EGR6n8zlVOJ70WHBXaZzy5DloecmpRIU5pITsojJ0kH2qbsDrTXEcFm
+                3y3HmHrNzpSecXBzP3KyThXT/wBrvo8KLEChGjMshX5g22E598ViNAhw9fysRhjX+flNhOr3x1pd3vXQ
+                r0qlMUTLgRJIzJMcWM8E+70hcZZOa4Hi9fLz5qlITqRw3bEvSoj7KZ4PyDYAkk6uytzj7D3qbalqizGZ
+                r777DQu8jmTDIWQEoyeTo6fV2PoRVms2y3x3Q6xBjNODopDSUkfcCvpVvhraUyuIwppStakFsFJV5Ix1
+                9amXO+tCs53+BhxcTkeKZwBGJmSDPinCbZs9zR3tI+yqmJKujq1iTcX4Av0dbiX3lKQ204F60hJPRJQc
+                bfuHittm5oXLtURhtTEhi6tNyVMy1PNPZQSClRJ28jtVlu2+G+2229EYcbbGEJW2CEj0BG1EW+E2htCI
+                jCUtq1oAbACVeRtsfWo9Te63qSTQgmcAwNCAdMw2BBmIkQZlYsXjxev2ua+Hs9EjhxtlyWl2UHHFKQp3
+                U4E6upGc43FddWsxboUV0ux4cdlwjBU20lJI8ZA9K2a8ptW6pXl5UuaTS0PJMHlPkptFhp0wxxmF8LQh
+                1GlxKVJyDhQyMjcf3X1t5pSoHKE4vMsMGQJBab5wToDmkagnrjPXHpXpkeaUrpJOpQs5FMilKShKUpQu
+                pSlKEJSlKEJSlKEJSlKEJSlKEL//2Q==
+</property>
         </structure>
     </list-property>
 </report>

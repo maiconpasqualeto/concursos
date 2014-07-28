@@ -108,24 +108,31 @@ public class ExcelFacade extends FacadeBean {
 		try {
 			tr.begin();
 			
-			//Calendar dataVencimento = new GregorianCalendar(2009, Calendar.JUNE, 10); 
-			Calendar dataVencimento = GregorianCalendar.getInstance();
+			Calendar dataVencimento = new GregorianCalendar(2014, Calendar.JULY, 31); 
+			//Calendar dataVencimento = GregorianCalendar.getInstance();
 			
 			ExCandidatoDAO candidatoDAO = new ExCandidatoDAO();
 			ExCandidato candidato = candidatoDAO.buscarCandidatoPorCpf(cpf, em);
 			BoletoBancario boleto = new BoletoBancario();
 			boleto.setCargo(candidato.getCargo().getDescricao());
-			String codigoBarras = 
+			/*String codigoBarras = 
 				montaCodigoBarras(
 						candidato.getCargo().getValor(), 
-						Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6), "13102873");
+						Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6), "13102873");*/
 						//Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6), "03434792");
-						
+			
+			String numeroConvenio = "2655932"; 
+			
+			String codigoBarras = 
+					montaCodigoBarrasBancoBrasil(
+							candidato.getCargo().getValor(), 
+							Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6), numeroConvenio);
+			
 			boleto.setCodigoDeBarra(codigoBarras);
 			boleto.setCpfSacado(candidato.getCpf());
 			boleto.setDataEmissao(new Date());
 			boleto.setDataVencimento(dataVencimento.getTime());
-			boleto.setLinhaDigitavel(montaLinhaDigitavel(codigoBarras));
+			boleto.setLinhaDigitavel(montaLinhaDigitavelBancoBrasil(codigoBarras));
 			boleto.setNossoNumero("900000000001646031");
 			boleto.setNumeroDocumento("164602");
 			boleto.setNumeroInscricao(Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
@@ -190,6 +197,37 @@ public class ExcelFacade extends FacadeBean {
 		
 		return codigoBarra.toString();
 	}
+	
+	/**
+	 * Monta c�digo de barras
+	 * 
+	 * @param valor
+	 * @param numeroInscricao
+	 * @param cpf
+	 * @return
+	 */
+	public static String montaCodigoBarrasBancoBrasil(
+			Float valor, String numeroInscricao, String numeroConvenio){
+		
+		//DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		
+		StringBuilder codigoBarra = new StringBuilder();		
+		codigoBarra.append("001");
+		codigoBarra.append("9");
+		codigoBarra.append("9999");
+		String strValor = Utilitarios.getStringDeFloat(valor, 2);
+		codigoBarra.append(Utilitarios.completaComZeros(Utilitarios.removeVirgula(strValor), 10));
+		codigoBarra.append("000000");
+		codigoBarra.append(numeroConvenio);
+		codigoBarra.append(Utilitarios.completaComZeros(numeroInscricao, 10));
+		codigoBarra.append("18");
+		
+		// calcula e insere o d�gito verificador na posi��o 4
+		String digitoVerificador = Utilitarios.calculaDigitoVerificadorModulo10(codigoBarra.toString(), 1, 2, 1);
+		codigoBarra.insert(4, digitoVerificador);
+		
+		return codigoBarra.toString();
+	}
 		
 	public static String montaLinhaDigitavel(String codigoDeBarras){
 		StringBuilder linhaDigitavel = new StringBuilder();
@@ -212,6 +250,43 @@ public class ExcelFacade extends FacadeBean {
 		linhaDigitavel.append(digitoBloco3);
 		linhaDigitavel.append(bloco4);
 		linhaDigitavel.append(digitoBloco4);
+		
+		return linhaDigitavel.toString();
+	}
+	
+	public static String montaLinhaDigitavelBancoBrasil(String codigoDeBarras){
+		StringBuilder linhaDigitavel = new StringBuilder();
+		
+		StringBuilder bloco1 = new StringBuilder();
+		bloco1.append(codigoDeBarras.substring(0, 4));
+		bloco1.append(codigoDeBarras.substring(19, 24));
+			
+		StringBuilder bloco2 = new StringBuilder();
+		bloco2.append(codigoDeBarras.substring(24, 34));
+
+		StringBuilder bloco3 = new StringBuilder();
+		bloco3.append(codigoDeBarras.substring(34, 44));
+		
+		// Bloco 4 é somente o DV do código de barras
+		String bloco4 = codigoDeBarras.substring(4, 5); 
+		
+		StringBuilder bloco5 = new StringBuilder();
+		bloco5.append(codigoDeBarras.substring(5, 9));
+		bloco5.append(codigoDeBarras.substring(9, 19));
+		
+		String digitoBloco1 = Utilitarios.calculaDigitoVerificadorModulo10(bloco1.toString(), 1, 2, 1);
+		String digitoBloco2 = Utilitarios.calculaDigitoVerificadorModulo10(bloco2.toString(), 1, 2, 1);
+		String digitoBloco3 = Utilitarios.calculaDigitoVerificadorModulo10(bloco3.toString(), 1, 2, 1);
+		
+		
+		linhaDigitavel.append(bloco1);
+		linhaDigitavel.append(digitoBloco1);
+		linhaDigitavel.append(bloco2);
+		linhaDigitavel.append(digitoBloco2);
+		linhaDigitavel.append(bloco3);
+		linhaDigitavel.append(digitoBloco3);
+		linhaDigitavel.append(bloco4);
+		linhaDigitavel.append(bloco5);
 		
 		return linhaDigitavel.toString();
 	}
