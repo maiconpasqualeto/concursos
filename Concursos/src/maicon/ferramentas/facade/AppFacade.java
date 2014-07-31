@@ -3,17 +3,24 @@
  */
 package maicon.ferramentas.facade;
 
-import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
+import maicon.concursos.ferramentas.Utilitarios;
 import maicon.concursos.ferramentas.dao.CandidatoDAO;
 import maicon.concursos.ferramentas.dao.ConcursoDAO;
 import maicon.concursos.ferramentas.dao.DAOException;
+import maicon.concursos.ferramentas.dao.GenericDAO;
+import maicon.concursos.persistencia.vo.BoletoConcurso;
 import maicon.concursos.persistencia.vo.Candidato;
 import maicon.concursos.persistencia.vo.Cargo;
 import maicon.concursos.persistencia.vo.Concurso;
+import maicon.excel.facade.ExcelFacade;
 
 import org.apache.log4j.Logger;
 
@@ -83,6 +90,67 @@ public class AppFacade extends FacadeBean {
 		}
 		
 		return cargos;
+	}
+	
+	public static BoletoConcurso geraBoleto(String cpf) throws FacadeException{
+		EntityManager em = BasicService.getEntityManager();
+		EntityTransaction tr = em.getTransaction();
+		
+		BoletoConcurso boleto = null;
+		try {
+			tr.begin();
+			
+			Calendar dataVencimento = new GregorianCalendar(2014, Calendar.AUGUST, 15); 
+			Calendar dataBaseFebraban = new GregorianCalendar(1997, Calendar.OCTOBER, 07);
+			
+			// fator vencimento é diferença em dias entre a data base da febraban até o dia de vencimento do boleto.
+			Long fatorVendimento = 
+					(dataVencimento.getTimeInMillis() - dataBaseFebraban.getTimeInMillis()) / 1000 / 3600 / 24;
+			
+			CandidatoDAO dao = new CandidatoDAO();
+			Candidato candidato = dao.buscarCandidatoPorCpf(cpf, em);
+			
+			boleto = new BoletoConcurso();
+			boleto.setCargo(candidato.getCargo().getDescricao());
+			boleto.setNomeConcurso(candidato.getConcurso().getDescricao() + " - " + 
+							candidato.getConcurso().getPrefeitura());
+			
+			String numeroConvenio = "2655932"; 
+			
+			String nossoNumero = 
+					numeroConvenio + Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 10);
+			
+			String codigoBarras = 
+					ExcelFacade.montaCodigoBarrasBancoBrasil(
+							candidato.getFuncao().getValor().floatValue(), 
+							nossoNumero, 
+							fatorVendimento.toString());
+			
+			boleto.setCodigoDeBarra(codigoBarras);
+			boleto.setCpfSacado(candidato.getCpf());
+			boleto.setDataEmissao(new Date());
+			boleto.setDataVencimento(dataVencimento.getTime());
+			boleto.setLinhaDigitavel(
+					ExcelFacade.montaLinhaDigitavelBancoBrasil(codigoBarras));
+			boleto.setNossoNumero(nossoNumero);			
+			boleto.setNumeroDocumento(Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
+			boleto.setNumeroInscricao(Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
+			boleto.setSacado(candidato.getNome());
+			boleto.setValor(candidato.getFuncao().getValor());
+			
+			new GenericDAO<BoletoConcurso>().salvar(boleto, em);
+			
+			tr.commit();
+						
+		} catch (DAOException e) {
+			tr.rollback();
+			throw new FacadeException(e.getCause(), logger);
+		} finally {
+			if (em != null && em.isOpen())
+				em.close();
+		}
+		
+		return boleto;
 	}
 	
 }

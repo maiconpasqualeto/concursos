@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import maicon.concursos.ferramentas.Utilitarios;
+import maicon.concursos.persistencia.vo.BoletoConcurso;
 import maicon.concursos.persistencia.vo.Candidato;
 import maicon.concursos.persistencia.vo.Cargo;
 import maicon.concursos.persistencia.vo.Concurso;
@@ -23,6 +24,8 @@ import maicon.concursos.persistencia.vo.EstadoCivil;
 import maicon.concursos.persistencia.vo.Funcao;
 import maicon.concursos.persistencia.vo.Lotacao;
 import maicon.concursos.persistencia.vo.Uf;
+import maicon.excel.facade.ExcelFacade;
+import maicon.excel.persistencia.vo.BoletoBancario;
 import maicon.ferramentas.facade.AppFacade;
 import maicon.ferramentas.facade.FacadeBean;
 import maicon.ferramentas.facade.FacadeException;
@@ -320,5 +323,20 @@ public class InscricaoAction extends DispatchAction {
 		request.setAttribute("estadosCivis", estadosCivis);
 		request.setAttribute("lotacoes", lotacoes);
 		request.setAttribute("funcoes", funcoes);
+	}
+	
+	public ActionForward ImprimirBoleto(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		DynaActionForm f = (DynaActionForm) form;
+		
+		BoletoConcurso b = AppFacade.geraBoleto(f.getString("cpf"));		
+		
+		ActionForward fo = new ActionForward();
+		fo.setName("imprimir");
+		fo.setPath("/run?ReportName=boleto.rptdesign&codigoBoleto=" + b.getId());
+		fo.setRedirect(true);
+		
+		return fo;
 	}
 }

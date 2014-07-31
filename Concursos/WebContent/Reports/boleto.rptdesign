@@ -3,6 +3,20 @@
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">1935</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">1935</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">1935</property>
+        </structure>
+    </list-property>
     <property name="units">mm</property>
     <method name="initialize"><![CDATA[importPackage(Packages.br.com.dsf.birt);
 
@@ -76,7 +90,7 @@
             <property name="odaDriverClass">org.postgresql.Driver</property>
             <property name="odaURL">jdbc:postgresql://localhost:5432/concursos</property>
             <property name="odaUser">postgres</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">cG9zdGdyZXM=</encrypted-property>
+            <encrypted-property name="odaPassword" encryptionID="base64">c2l4dGVjMTIzIUA=</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -124,6 +138,7 @@ if (contador++ == 0) {
 imagem = null;]]></method>
         </script-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set Concursos" id="1935">
+            <property name="nullsOrdering">nulls lowest</property>
             <list-property name="parameters">
                 <structure>
                     <property name="name">codigoBoleto</property>
@@ -142,7 +157,7 @@ imagem = null;]]></method>
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">cod_boleto_bancario</property>
+                        <property name="name">cod_boleto_concurso</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
@@ -173,7 +188,7 @@ imagem = null;]]></method>
                     <structure>
                         <property name="position">7</property>
                         <property name="name">valor</property>
-                        <property name="dataType">float</property>
+                        <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">8</property>
@@ -200,97 +215,96 @@ imagem = null;]]></method>
                         <property name="name">cpf_sacado</property>
                         <property name="dataType">string</property>
                     </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">nome_concurso</property>
+                        <property name="dataType">string</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">Postgres Concursos</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">cod_boleto_bancario</property>
-                    <property name="nativeName">cod_boleto_bancario</property>
+                    <property name="name">cod_boleto_concurso</property>
+                    <property name="nativeName">cod_boleto_concurso</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">numero_inscricao</property>
                     <property name="nativeName">numero_inscricao</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">numero_documento</property>
                     <property name="nativeName">numero_documento</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">data_emissao</property>
                     <property name="nativeName">data_emissao</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">codigo_barra</property>
                     <property name="nativeName">codigo_barra</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">nosso_numero</property>
                     <property name="nativeName">nosso_numero</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
                     <property name="name">valor</property>
                     <property name="nativeName">valor</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
+                    <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">data_vencimento</property>
                     <property name="nativeName">data_vencimento</property>
                     <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
                     <property name="name">linha_digitavel</property>
                     <property name="nativeName">linha_digitavel</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">sacado</property>
                     <property name="nativeName">sacado</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">cargo</property>
                     <property name="nativeName">cargo</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">cpf_sacado</property>
                     <property name="nativeName">cpf_sacado</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">nome_concurso</property>
+                    <property name="nativeName">nome_concurso</property>
+                    <property name="dataType">string</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select 
-cod_boleto_bancario, 
+cod_boleto_concurso, 
 numero_inscricao,
 numero_documento,
 data_emissao,
@@ -301,49 +315,56 @@ data_vencimento,
 linha_digitavel,
 sacado,
 cargo,
-cpf_sacado
-from excel.boleto_bancario
-where cod_boleto_bancario = ?]]></xml-property>
+cpf_sacado,
+nome_concurso
+from concursos.boleto_concurso
+where cod_boleto_concurso = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
-  <Version>1.0</Version>
-  <design:DataSetParameters>
-    <design:parameterDefinitions>
-      <design:inOutMode>In</design:inOutMode>
-      <design:attributes>
-        <design:name></design:name>
-        <design:position>1</design:position>
-        <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
-        <design:nullability>Unknown</design:nullability>
-        <design:uiHints>
-          <design:displayName>Código Boleto</design:displayName>
-        </design:uiHints>
-      </design:attributes>
-      <design:inputAttributes>
-        <design:elementAttributes>
-          <design:optional>false</design:optional>
-          <design:masksValue>false</design:masksValue>
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+          <design:nullability>Unknown</design:nullability>
           <design:uiHints>
-            <design:promptStyle>TextField</design:promptStyle>
+            <design:displayName>Código Boleto</design:displayName>
           </design:uiHints>
-        </design:elementAttributes>
-      </design:inputAttributes>
-    </design:parameterDefinitions>
-  </design:DataSetParameters>
+        </design:attributes>
+        <design:inputAttributes>
+          <design:elementAttributes>
+            <design:optional>false</design:optional>
+            <design:masksValue>false</design:masksValue>
+            <design:uiHints>
+              <design:promptStyle>TextField</design:promptStyle>
+            </design:uiHints>
+          </design:elementAttributes>
+        </design:inputAttributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>cod_boleto_bancario</design:name>
-            <design:position>1</design:position>
+            <design:identifier>
+              <design:name>cod_boleto_concurso</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
             <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
             <design:precision>10</design:precision>
             <design:scale>0</design:scale>
             <design:nullability>NotNullable</design:nullability>
           </design:attributes>
           <design:usageHints>
-            <design:label>cod_boleto_bancario</design:label>
+            <design:label>cod_boleto_concurso</design:label>
             <design:formattingHints>
               <design:displaySize>11</design:displaySize>
             </design:formattingHints>
@@ -351,8 +372,10 @@ where cod_boleto_bancario = ?]]></xml-property>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>numero_inscricao</design:name>
-            <design:position>2</design:position>
+            <design:identifier>
+              <design:name>numero_inscricao</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
             <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
             <design:precision>10</design:precision>
             <design:scale>0</design:scale>
@@ -367,8 +390,10 @@ where cod_boleto_bancario = ?]]></xml-property>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>numero_documento</design:name>
-            <design:position>3</design:position>
+            <design:identifier>
+              <design:name>numero_documento</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
             <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
             <design:precision>10</design:precision>
             <design:scale>0</design:scale>
@@ -383,8 +408,10 @@ where cod_boleto_bancario = ?]]></xml-property>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>data_emissao</design:name>
-            <design:position>4</design:position>
+            <design:identifier>
+              <design:name>data_emissao</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
             <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
             <design:precision>29</design:precision>
             <design:scale>6</design:scale>
@@ -399,8 +426,10 @@ where cod_boleto_bancario = ?]]></xml-property>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>codigo_barras</design:name>
-            <design:position>5</design:position>
+            <design:identifier>
+              <design:name>codigo_barras</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
             <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
             <design:precision>80</design:precision>
             <design:scale>0</design:scale>
@@ -415,8 +444,10 @@ where cod_boleto_bancario = ?]]></xml-property>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>nosso_numero</design:name>
-            <design:position>6</design:position>
+            <design:identifier>
+              <design:name>nosso_numero</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
             <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
             <design:precision>25</design:precision>
             <design:scale>0</design:scale>
@@ -431,8 +462,10 @@ where cod_boleto_bancario = ?]]></xml-property>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>valor</design:name>
-            <design:position>7</design:position>
+            <design:identifier>
+              <design:name>valor</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
             <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
             <design:precision>17</design:precision>
             <design:scale>17</design:scale>
@@ -499,8 +532,8 @@ where cod_boleto_bancario = ?]]></xml-property>
             <property name="dataSet">Data Set Concursos</property>
             <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">cod_boleto_bancario</property>
-                    <expression name="expression">dataSetRow["cod_boleto_bancario"]</expression>
+                    <property name="name">cod_boleto_concurso</property>
+                    <expression name="expression">dataSetRow["cod_boleto_concurso"]</expression>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
@@ -558,6 +591,11 @@ where cod_boleto_bancario = ?]]></xml-property>
                     <expression name="expression">dataSetRow["codigo_barra"]</expression>
                     <property name="dataType">string</property>
                 </structure>
+                <structure>
+                    <property name="name">nome_concurso</property>
+                    <expression name="expression">dataSetRow["nome_concurso"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
             </list-property>
             <property name="pageBreakInterval">50</property>
             <column id="53"/>
@@ -589,7 +627,7 @@ where cod_boleto_bancario = ?]]></xml-property>
                                             <property name="width">48mm</property>
                                         </column>
                                         <row id="1911">
-                                            <property name="height">32mm</property>
+                                            <property name="height">20mm</property>
                                             <cell id="1912">
                                                 <property name="colSpan">4</property>
                                                 <property name="rowSpan">1</property>
@@ -678,8 +716,8 @@ where cod_boleto_bancario = ?]]></xml-property>
                                                 <property name="borderRightStyle">solid</property>
                                                 <property name="borderRightWidth">thin</property>
                                                 <text id="1955">
-                                                    <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[VALE CONSULTORIA]]></text-property>
+                                                    <property name="contentType">html</property>
+                                                    <text-property name="content"><![CDATA[VALE-CONSULTORIA E ASSESSORIA LTDA<BR>CNPJ: 13.102.873/0001-57]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="70">
@@ -695,7 +733,7 @@ where cod_boleto_bancario = ?]]></xml-property>
                                                 <property name="textAlign">center</property>
                                                 <text id="1975">
                                                     <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[3496/70875-5]]></text-property>
+                                                    <text-property name="content"><![CDATA[3496-7 / 70875-5]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="71">
@@ -1092,8 +1130,8 @@ where cod_boleto_bancario = ?]]></xml-property>
                                                 <property name="borderTopWidth">thin</property>
                                                 <property name="verticalAlign">middle</property>
                                                 <text id="149">
-                                                    <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[Concurso: CONCURSO PÚBLICO PONTA PORÃ - EDITAL 01/2009]]></text-property>
+                                                    <property name="contentType">html</property>
+                                                    <text-property name="content"><![CDATA[Concurso: <VALUE-OF>row["nome_concurso"]</VALUE-OF>]]></text-property>
                                                 </text>
                                                 <text id="1956">
                                                     <property name="contentType">html</property>
@@ -1507,7 +1545,7 @@ Não receber após vencimento]]></text-property>
                                                 <property name="verticalAlign">middle</property>
                                                 <text id="1910">
                                                     <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[VALE CONSULTORIA]]></text-property>
+                                                    <text-property name="content"><![CDATA[VALE-CONSULTORIA E ASSESSORIA LTDA - CNPJ: 13.102.873/0001-57]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1114">
@@ -1523,7 +1561,7 @@ Não receber após vencimento]]></text-property>
                                                 <text id="1976">
                                                     <property name="textAlign">center</property>
                                                     <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[3496/70875-5]]></text-property>
+                                                    <text-property name="content"><![CDATA[3496-7 / 70875-5]]></text-property>
                                                 </text>
                                             </cell>
                                         </row>
@@ -2281,8 +2319,8 @@ Não receber após vencimento]]></text-property>
                                                 <property name="paddingRight">0pt</property>
                                                 <property name="verticalAlign">middle</property>
                                                 <text id="1966">
-                                                    <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[Concurso: CONCURSO PÚBLICO PONTA PORÃ - EDITAL 01/2009]]></text-property>
+                                                    <property name="contentType">html</property>
+                                                    <text-property name="content"><![CDATA[Concurso: <VALUE-OF>row["nome_concurso"]</VALUE-OF>]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1208">

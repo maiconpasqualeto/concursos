@@ -108,33 +108,33 @@ public class ExcelFacade extends FacadeBean {
 		try {
 			tr.begin();
 			
-			Calendar dataVencimento = new GregorianCalendar(2014, Calendar.JULY, 31); 
-			//Calendar dataVencimento = GregorianCalendar.getInstance();
+			Calendar dataVencimento = new GregorianCalendar(2014, Calendar.AUGUST, 15); 
+			Calendar dataBaseFebraban = new GregorianCalendar(1997, Calendar.OCTOBER, 07);
+			
+			// fator vencimento é diferença em dias entre a data base da febraban até o dia de vencimento do boleto.
+			Long fatorVendimento = (dataVencimento.getTimeInMillis() - dataBaseFebraban.getTimeInMillis()) / 1000 / 3600 / 24;
 			
 			ExCandidatoDAO candidatoDAO = new ExCandidatoDAO();
 			ExCandidato candidato = candidatoDAO.buscarCandidatoPorCpf(cpf, em);
 			BoletoBancario boleto = new BoletoBancario();
 			boleto.setCargo(candidato.getCargo().getDescricao());
-			/*String codigoBarras = 
-				montaCodigoBarras(
-						candidato.getCargo().getValor(), 
-						Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6), "13102873");*/
-						//Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6), "03434792");
 			
 			String numeroConvenio = "2655932"; 
 			
+			String nossoNumero = 
+					numeroConvenio + Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 10);
+			
 			String codigoBarras = 
 					montaCodigoBarrasBancoBrasil(
-							candidato.getCargo().getValor(), 
-							Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6), numeroConvenio);
+							candidato.getCargo().getValor(), nossoNumero, fatorVendimento.toString());
 			
 			boleto.setCodigoDeBarra(codigoBarras);
 			boleto.setCpfSacado(candidato.getCpf());
 			boleto.setDataEmissao(new Date());
 			boleto.setDataVencimento(dataVencimento.getTime());
 			boleto.setLinhaDigitavel(montaLinhaDigitavelBancoBrasil(codigoBarras));
-			boleto.setNossoNumero("900000000001646031");
-			boleto.setNumeroDocumento("164602");
+			boleto.setNossoNumero(nossoNumero);			
+			boleto.setNumeroDocumento(Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
 			boleto.setNumeroInscricao(Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
 			boleto.setSacado(candidato.getNome());
 			boleto.setValor(candidato.getCargo().getValor());
@@ -207,23 +207,25 @@ public class ExcelFacade extends FacadeBean {
 	 * @return
 	 */
 	public static String montaCodigoBarrasBancoBrasil(
-			Float valor, String numeroInscricao, String numeroConvenio){
+			Float valor, String nossoNumero, String fatorVencimento){
 		
 		//DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 		
 		StringBuilder codigoBarra = new StringBuilder();		
 		codigoBarra.append("001");
 		codigoBarra.append("9");
-		codigoBarra.append("9999");
+		codigoBarra.append(fatorVencimento);
 		String strValor = Utilitarios.getStringDeFloat(valor, 2);
 		codigoBarra.append(Utilitarios.completaComZeros(Utilitarios.removeVirgula(strValor), 10));
 		codigoBarra.append("000000");
-		codigoBarra.append(numeroConvenio);
-		codigoBarra.append(Utilitarios.completaComZeros(numeroInscricao, 10));
+		codigoBarra.append(nossoNumero);
 		codigoBarra.append("18");
 		
 		// calcula e insere o d�gito verificador na posi��o 4
-		String digitoVerificador = Utilitarios.calculaDigitoVerificadorModulo10(codigoBarra.toString(), 1, 2, 1);
+		String digitoVerificador = Utilitarios.calculaDigitoVerificadorModulo11(codigoBarra.toString(), 2, 9, 1);
+		if (digitoVerificador.equals("0") ||
+				digitoVerificador.equals("10"))
+			digitoVerificador = "1";
 		codigoBarra.insert(4, digitoVerificador);
 		
 		return codigoBarra.toString();

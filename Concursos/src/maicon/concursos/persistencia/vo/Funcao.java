@@ -3,6 +3,8 @@
  */
 package maicon.concursos.persistencia.vo;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +30,9 @@ public class Funcao {
 	
 	@Column(name="funcao")
 	private String descricao;
+	
+	@Column(name="valor")
+	private BigDecimal valor;
 
 	public Integer getId() {
 		return id;
@@ -45,6 +50,14 @@ public class Funcao {
 		this.descricao = descricao;
 	}
 	
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
 	@Transient
 	private String idAux;
 

@@ -11,11 +11,15 @@
 	<script language="javascript">
 		function CallPrint(strid) {			
 			var inscricao = document.getElementById('inscricao').value;
-			//var prtContent = document.getElementById(strid);
 			var WinPrint = window.open(strid + inscricao,'Impressão',' "style:height=900,width=800,top=110,left=50,scrollbars=1" ');
-			//WinPrint.document.write(prtContent.innerHTML);			
-			//WinPrint.focus();			
-			//WinPrint.print();
+		}
+		function popup(nome,w,h,scroll){
+			var cpf = $("#cpf").val();
+			pagina = 'efetuaInscricao.do?acao=ImprimirBoleto&cpf=' + cpf;
+			LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+			TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+			settings = 'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+			var win = window.open(pagina,nome,settings);
 		}
 	</script>
 </head>
@@ -173,12 +177,12 @@
 				<table>
 					<TR>
 						<td>
-							<input id="btnimprimir" runat="server" name="btnimprimir" 
-									onclick="CallPrint('efetuaInscricao.do?acao=Imprimir&nomeConcurso=<bean:write name="nomeConcurso"/>&prefeitura=<bean:write name="prefeitura"/>&codConcurso=<bean:write name="codConcurso"/>&inscricao=');" type="button" value="Imprimir" />
-							<!--<html:submit property="acao" value="Imprimir"></html:submit>-->
+							<%-- <input id="btnimprimir" runat="server" name="btnimprimir" 
+									onclick="CallPrint('efetuaInscricao.do?acao=Imprimir&nomeConcurso=<bean:write name="nomeConcurso"/>&prefeitura=<bean:write name="prefeitura"/>&codConcurso=<bean:write name="codConcurso"/>&inscricao=');" type="button" value="Imprimir" /> --%>
+							<input type="button" value="Imprimir Boleto" name="imprimirboleto" 
+								onclick="popup('Imprimir','750','600','no')" />							
 							<html:submit property="acao" value="Voltar" ></html:submit>
-							<!--<input id="btnBack" type="button" value="Voltar" onclick="history.back();" />
-						--></td>
+						</td>
 					</TR>
 				</table>
 			</td>
