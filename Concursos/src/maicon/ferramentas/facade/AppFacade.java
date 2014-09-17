@@ -100,22 +100,29 @@ public class AppFacade extends FacadeBean {
 		try {
 			tr.begin();
 			
-			Calendar dataVencimento = new GregorianCalendar(2014, Calendar.AUGUST, 15); 
+			CandidatoDAO dao = new CandidatoDAO();
+			Candidato candidato = dao.buscarCandidatoPorCpf(cpf, em);
+			Concurso concurso = candidato.getConcurso();
+			
+			// dados específicos do boleto
+			Date dataVencimento = concurso.getDataVencimento();
+			String numeroConvenio = concurso.getNumeroConvenio();
+			String cnpj = concurso.getCnpj();
+			String cedente = concurso.getCedente();
+			String agenciaConta = concurso.getPagamentoAgencia() + " / " + concurso.getPagamentoConta();
+			
+			
+			//Sempre fixo
 			Calendar dataBaseFebraban = new GregorianCalendar(1997, Calendar.OCTOBER, 07);
 			
 			// fator vencimento é diferença em dias entre a data base da febraban até o dia de vencimento do boleto.
 			Long fatorVendimento = 
-					(dataVencimento.getTimeInMillis() - dataBaseFebraban.getTimeInMillis()) / 1000 / 3600 / 24;
-			
-			CandidatoDAO dao = new CandidatoDAO();
-			Candidato candidato = dao.buscarCandidatoPorCpf(cpf, em);
+					(dataVencimento.getTime() - dataBaseFebraban.getTimeInMillis()) / 1000 / 3600 / 24;
 			
 			boleto = new BoletoConcurso();
 			boleto.setCargo(candidato.getCargo().getDescricao());
 			boleto.setNomeConcurso(candidato.getConcurso().getDescricao() + " - " + 
 							candidato.getConcurso().getPrefeitura());
-			
-			String numeroConvenio = "2655932"; 
 			
 			String nossoNumero = 
 					numeroConvenio + Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 10);
@@ -129,7 +136,7 @@ public class AppFacade extends FacadeBean {
 			boleto.setCodigoDeBarra(codigoBarras);
 			boleto.setCpfSacado(candidato.getCpf());
 			boleto.setDataEmissao(new Date());
-			boleto.setDataVencimento(dataVencimento.getTime());
+			boleto.setDataVencimento(dataVencimento);
 			boleto.setLinhaDigitavel(
 					ExcelFacade.montaLinhaDigitavelBancoBrasil(codigoBarras));
 			boleto.setNossoNumero(nossoNumero);			
@@ -137,6 +144,9 @@ public class AppFacade extends FacadeBean {
 			boleto.setNumeroInscricao(Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
 			boleto.setSacado(candidato.getNome());
 			boleto.setValor(candidato.getFuncao().getValor());
+			boleto.setCedente(cedente);
+			boleto.setCnpj(cnpj);
+			boleto.setAgenciaConta(agenciaConta);
 			
 			new GenericDAO<BoletoConcurso>().salvar(boleto, em);
 			

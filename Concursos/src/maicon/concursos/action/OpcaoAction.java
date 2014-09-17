@@ -56,8 +56,12 @@ public class OpcaoAction extends DispatchAction {
 		else 
 			if("AGUARDANDO".equals(c.getSituacao()))
 				return mapping.findForward("aguardando");
+		else 
+			if("ABERTO".equals(c.getSituacao()))
+				return mapping.findForward("entrada");
 		
-		return mapping.findForward("entrada");
+		// se não for nenhuma das alternativas está fechado		
+		return mapping.findForward("fechado");
 	}
 
 }

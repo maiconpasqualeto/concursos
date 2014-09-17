@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import org.apache.log4j.Logger;
-
-import maicon.concursos.persistencia.vo.Cargo;
+import maicon.concursos.persistencia.vo.Candidato;
 import maicon.concursos.persistencia.vo.Concurso;
 import maicon.concursos.persistencia.vo.Lotacao;
+
+import org.apache.log4j.Logger;
 
 /**
  * @author maicon
@@ -55,4 +56,6 @@ public class ConcursoDAO extends GenericDAO<Concurso> {
 		
 		return lotacoes;
 	}
+	
+	
 }

@@ -3,13 +3,20 @@
  */
 package maicon.concursos.persistencia.vo;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author Maicon
@@ -55,7 +62,22 @@ public class Concurso {
 	@Column(name="ultimo_num_inscricao")
 	private Integer ultimoNumeroInscricao;
 	
-
+	@Column(name="cedente")
+	private String cedente;
+	
+	@Column(name="cnpj")
+	private String cnpj;
+	
+	@Column(name="numero_convenio")
+	private String numeroConvenio;
+	
+	@Column(name="data_vencimento")
+	@Temporal(TemporalType.DATE)
+	private Date dataVencimento;
+	
+	@ManyToMany(targetEntity=Candidato.class, mappedBy="concurso", fetch=FetchType.LAZY)
+	private List<Candidato> candidatos;	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -144,6 +166,44 @@ public class Concurso {
 		this.ultimoNumeroInscricao = ultimoNumeroInscricao;
 	}
 
+	public String getCedente() {
+		return cedente;
+	}
+
+	public void setCedente(String cedente) {
+		this.cedente = cedente;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public List<Candidato> getCandidatos() {
+		return candidatos;
+	}
+
+	public void setCandidatos(List<Candidato> candidatos) {
+		this.candidatos = candidatos;
+	}
+
+	public String getNumeroConvenio() {
+		return numeroConvenio;
+	}
+
+	public void setNumeroConvenio(String numeroConvenio) {
+		this.numeroConvenio = numeroConvenio;
+	}
+
+	public Date getDataVencimento() {
+		return dataVencimento;
+	}
+
+	public void setDataVencimento(Date dataVencimento) {
+		this.dataVencimento = dataVencimento;
+	}
 	
-			
 }

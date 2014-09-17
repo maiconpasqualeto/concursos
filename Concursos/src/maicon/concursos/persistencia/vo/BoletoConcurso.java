@@ -68,6 +68,15 @@ public class BoletoConcurso {
 	
 	@Column(name="nome_concurso")
 	private String nomeConcurso;
+	
+	@Column(name="cedente")
+	private String cedente;
+	
+	@Column(name="agencia_conta")
+	private String agenciaConta;
+	
+	@Column(name="cnpj")
+	private String cnpj;
 		
 	public Integer getId() {
 		return id;
@@ -172,5 +181,29 @@ public class BoletoConcurso {
 	public void setNomeConcurso(String nomeConcurso) {
 		this.nomeConcurso = nomeConcurso;
 	}
-		
+
+	public String getCedente() {
+		return cedente;
+	}
+
+	public void setCedente(String cedente) {
+		this.cedente = cedente;
+	}
+
+	public String getAgenciaConta() {
+		return agenciaConta;
+	}
+
+	public void setAgenciaConta(String agenciaConta) {
+		this.agenciaConta = agenciaConta;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+	
 }
