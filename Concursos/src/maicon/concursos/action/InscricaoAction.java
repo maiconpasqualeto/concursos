@@ -24,8 +24,6 @@ import maicon.concursos.persistencia.vo.EstadoCivil;
 import maicon.concursos.persistencia.vo.Funcao;
 import maicon.concursos.persistencia.vo.Lotacao;
 import maicon.concursos.persistencia.vo.Uf;
-import maicon.excel.facade.ExcelFacade;
-import maicon.excel.persistencia.vo.BoletoBancario;
 import maicon.ferramentas.facade.AppFacade;
 import maicon.ferramentas.facade.FacadeBean;
 import maicon.ferramentas.facade.FacadeException;
@@ -293,7 +291,11 @@ public class InscricaoAction extends DispatchAction {
 	public ActionForward Voltar(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		return mapping.findForward("voltar");
+		String cpf = request.getParameter("cpf");
+		Candidato c = AppFacade.buscaCandidatoPorCpf(cpf);		
+		
+		ActionForward forward = mapping.findForward("voltarNovo");		
+		return new ActionForward(forward.getPath() + "&codConcurso=" + c.getConcurso().getId());
 	}
 	
 	private void preencheDadosPagina(HttpServletRequest request, DynaActionForm f, Integer codConcurso) throws FacadeException {

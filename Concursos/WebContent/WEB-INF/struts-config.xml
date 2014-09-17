@@ -209,6 +209,7 @@
 			<forward name="abrirFicha" path="/jsp/inscricao.jsp" />
 			<forward name="voltar" path="/opcao.do?acao=entrada" />
 			<forward name="inicio" path="/inicial.do" />
+			<forward name="voltarNovo" path="/opcao.do?acao=Confirma" />
 		</action>
 		
 		<action attribute="cadastroForm"
