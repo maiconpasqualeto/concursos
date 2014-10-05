@@ -14,8 +14,9 @@
 			var WinPrint = window.open(strid + inscricao,'Impressão',' "style:height=900,width=800,top=110,left=50,scrollbars=1" ');
 		}
 		function popup(nome,w,h,scroll){
-			var cpf = $("#cpf").val();
-			pagina = 'efetuaInscricao.do?acao=ImprimirBoleto&cpf=' + cpf;
+			var inscricao = $("#inscricao").val();
+			var codConcurso = $("#codConcurso").val();
+			pagina = 'efetuaInscricao.do?acao=ImprimirBoleto&numeroInscricao=' + inscricao + '&codConcurso=' + codConcurso;
 			LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
 			TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
 			settings = 'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
@@ -26,6 +27,10 @@
 <body>
 	<html:form styleClass="AppForm" action="/efetuaInscricao">
 	<jsp:include page="infoConcurso.jsp" flush="true" ></jsp:include>
+	<bean:define id="codConcurso">
+		<bean:write name="codConcurso"/>
+    </bean:define>
+	<html:hidden styleId="codConcurso" property="codConcurso" value="<%=codConcurso%>" />
 	<table width="100%" cellpadding="0" cellspacing="0" border="0">
 		<tr>
 			<td></td>

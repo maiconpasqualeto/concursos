@@ -92,7 +92,7 @@ public class AppFacade extends FacadeBean {
 		return cargos;
 	}
 	
-	public static BoletoConcurso geraBoleto(String cpf) throws FacadeException{
+	public static BoletoConcurso geraBoleto(String inscricao, Integer codConcurso) throws FacadeException{
 		EntityManager em = BasicService.getEntityManager();
 		EntityTransaction tr = em.getTransaction();
 		
@@ -101,7 +101,7 @@ public class AppFacade extends FacadeBean {
 			tr.begin();
 			
 			CandidatoDAO dao = new CandidatoDAO();
-			Candidato candidato = dao.buscarCandidatoPorCpf(cpf, em);
+			Candidato candidato = dao.buscarCandidatoPorInscricao(inscricao, codConcurso, em);
 			Concurso concurso = candidato.getConcurso();
 			
 			// dados específicos do boleto

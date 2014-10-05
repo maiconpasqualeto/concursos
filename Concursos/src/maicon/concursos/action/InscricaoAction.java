@@ -331,8 +331,10 @@ public class InscricaoAction extends DispatchAction {
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		DynaActionForm f = (DynaActionForm) form;
+		Integer codConcurso = Integer.valueOf(f.getString("codConcurso"));
+		String inscricao = Utilitarios.removeZerosAEsquerda(f.getString("numeroInscricao"));
 		
-		BoletoConcurso b = AppFacade.geraBoleto(f.getString("cpf"));		
+		BoletoConcurso b = AppFacade.geraBoleto(inscricao, codConcurso);		
 		
 		ActionForward fo = new ActionForward();
 		fo.setName("imprimir");
