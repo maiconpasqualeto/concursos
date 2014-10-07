@@ -291,8 +291,10 @@ public class InscricaoAction extends DispatchAction {
 	public ActionForward Voltar(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		String cpf = request.getParameter("cpf");
-		Candidato c = AppFacade.buscaCandidatoPorCpf(cpf);		
+		String codConcurso = request.getParameter("codConcurso");
+		String numeroInscricao = request.getParameter("numeroInscricao");
+		Candidato c = AppFacade.buscarCandidatoPorInscricao(
+				Utilitarios.removeZerosAEsquerda(numeroInscricao), Integer.valueOf(codConcurso));		
 		
 		ActionForward forward = mapping.findForward("voltarNovo");		
 		return new ActionForward(forward.getPath() + "&codConcurso=" + c.getConcurso().getId());
