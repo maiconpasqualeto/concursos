@@ -77,6 +77,9 @@ public class BoletoConcurso {
 	
 	@Column(name="cnpj")
 	private String cnpj;
+	
+	@Column(name="funcao_candidato")
+	private String funcaoCandidato;
 		
 	public Integer getId() {
 		return id;
@@ -204,6 +207,14 @@ public class BoletoConcurso {
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
+	}
+
+	public String getFuncaoCandidato() {
+		return funcaoCandidato;
+	}
+
+	public void setFuncaoCandidato(String funcaoCandidato) {
+		this.funcaoCandidato = funcaoCandidato;
 	}
 	
 }
