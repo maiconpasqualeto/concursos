@@ -235,12 +235,10 @@ public class InscricaoAction extends DispatchAction {
 		Concurso c = AppFacade.buscar(codConcurso, Concurso.class);
 		
 		String numeroInscricao = request.getParameter("inscricao");
-				
-		numeroInscricao = Utilitarios.removeZerosAEsquerda(numeroInscricao);
 		
-		Candidato candidato = AppFacade.buscarCandidatoPorInscricao(numeroInscricao, c.getId());
+		Candidato candidato = AppFacade.buscarCandidatoPorInscricao(Integer.valueOf(numeroInscricao), c.getId());
 		
-		f.set("numeroInscricao", Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
+		f.set("numeroInscricao", Utilitarios.completaComZeros(candidato.getNumeroInscricao().toString(), 6));
 		f.set("nome", candidato.getNome());
 		f.set("cpf", candidato.getCpf());				
 		f.set("endereco", candidato.getEndereco());
@@ -294,7 +292,7 @@ public class InscricaoAction extends DispatchAction {
 		String codConcurso = request.getParameter("codConcurso");
 		String numeroInscricao = request.getParameter("numeroInscricao");
 		Candidato c = AppFacade.buscarCandidatoPorInscricao(
-				Utilitarios.removeZerosAEsquerda(numeroInscricao), Integer.valueOf(codConcurso));		
+				Integer.valueOf(numeroInscricao), Integer.valueOf(codConcurso));		
 		
 		ActionForward forward = mapping.findForward("voltarNovo");		
 		return new ActionForward(forward.getPath() + "&codConcurso=" + c.getConcurso().getId());
@@ -334,9 +332,9 @@ public class InscricaoAction extends DispatchAction {
 		
 		DynaActionForm f = (DynaActionForm) form;
 		Integer codConcurso = Integer.valueOf(f.getString("codConcurso"));
-		String inscricao = Utilitarios.removeZerosAEsquerda(f.getString("numeroInscricao"));
+		String inscricao = f.getString("numeroInscricao");
 		
-		BoletoConcurso b = AppFacade.geraBoleto(inscricao, codConcurso);		
+		BoletoConcurso b = AppFacade.geraBoleto(Integer.valueOf(inscricao), codConcurso);		
 		
 		ActionForward fo = new ActionForward();
 		fo.setName("imprimir");

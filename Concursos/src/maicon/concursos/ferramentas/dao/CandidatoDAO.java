@@ -42,7 +42,7 @@ public class CandidatoDAO extends GenericDAO<Candidato> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Candidato buscarCandidatoPorInscricao(String numeroInscricao, Integer idConcurso, EntityManager em) throws DAOException{
+	public Candidato buscarCandidatoPorInscricao(Integer numeroInscricao, Integer idConcurso, EntityManager em) throws DAOException{
 		Query query = null;
 		Candidato candidato = null;
 		

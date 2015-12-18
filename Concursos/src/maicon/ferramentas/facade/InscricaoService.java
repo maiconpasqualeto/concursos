@@ -7,23 +7,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
-import maicon.concursos.ferramentas.dao.CandidatoDAO;
 import maicon.concursos.ferramentas.dao.ConcursoDAO;
 import maicon.concursos.ferramentas.dao.DAOException;
-import maicon.concursos.ferramentas.dao.GenericDAO;
 import maicon.concursos.persistencia.vo.Candidato;
-import maicon.concursos.persistencia.vo.Cargo;
 import maicon.concursos.persistencia.vo.Concurso;
 import maicon.concursos.persistencia.vo.Funcao;
 import maicon.concursos.persistencia.vo.Lotacao;
 import maicon.concursos.persistencia.vo.TabIncricao;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Hibernate;
 
 /**
  * @author Maicon
@@ -36,34 +32,40 @@ public class InscricaoService  {
 	public static synchronized Integer salvarInscricao(Candidato candidato, Concurso concurso) throws FacadeException{
 		EntityManager em = BasicService.getEntityManager();
 		EntityTransaction tr = em.getTransaction();
-
-		Integer numeroInscricao = concurso.getUltimoNumeroInscricao();
 		
-		if (numeroInscricao == null)
-			numeroInscricao = 1;
-		else 
-			numeroInscricao++;
+		Integer numeroInscricao = null;
 		
-		concurso.setUltimoNumeroInscricao(numeroInscricao);
-		
-		try {
-			tr.begin();	
+		try {			
+			tr.begin();
 			
+			numeroInscricao = 
+					(Integer) em.createQuery(
+							"select ultimoNumeroInscricao from Concurso c where c.id = :codConcurso")
+					.setParameter("codConcurso", concurso.getId())
+					.getSingleResult();
+			
+			if (numeroInscricao == null)
+				numeroInscricao = 1;
+			else 
+				numeroInscricao++;
+			
+			concurso.setUltimoNumeroInscricao(numeroInscricao);
+						
 			TabIncricao inscricao = new TabIncricao();
 			inscricao.setDataIncricao(new Date());
 			inscricao.setConcurso(concurso);						
 			inscricao.setNumeroInscricao(numeroInscricao);
 			
-			new GenericDAO<TabIncricao>().salvar(inscricao, em);
+			em.persist(inscricao);
 			
-			new GenericDAO<Concurso>().atualizar(concurso, em);
+			em.merge(concurso);
 			
-			candidato.setNumeroInscricao(numeroInscricao.toString());
+			candidato.setNumeroInscricao(numeroInscricao);
 			
-			new GenericDAO<Candidato>().salvar(candidato, em);
+			em.persist(candidato);
 			
 			tr.commit();
-		} catch (DAOException e) {
+		} catch (Exception e) {
 			tr.rollback();
 			throw new FacadeException("Erro", e, logger);
 		} finally {

@@ -41,7 +41,7 @@ public class Candidato {
 	private String cpf;
 	
 	@Column(name="numero_inscricao")
-	private String numeroInscricao;
+	private Integer numeroInscricao;
 	
 	@Column(name="endereco")
 	private String endereco;
@@ -158,11 +158,11 @@ public class Candidato {
 		this.cpf = cpf;
 	}
 
-	public String getNumeroInscricao() {
+	public Integer getNumeroInscricao() {
 		return numeroInscricao;
 	}
 
-	public void setNumeroInscricao(String numeroInscricao) {
+	public void setNumeroInscricao(Integer numeroInscricao) {
 		this.numeroInscricao = numeroInscricao;
 	}
 

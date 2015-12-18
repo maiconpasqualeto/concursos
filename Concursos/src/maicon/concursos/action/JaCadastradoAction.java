@@ -56,7 +56,7 @@ public class JaCadastradoAction extends DispatchAction {
 			}	
 		}
 		
-		f.set("numeroInscricao", Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
+		f.set("numeroInscricao", Utilitarios.completaComZeros(candidato.getNumeroInscricao().toString(), 6));
 		f.set("nome", candidato.getNome());
 		f.set("cpf", candidato.getCpf());				
 		f.set("endereco", candidato.getEndereco());
@@ -102,7 +102,7 @@ public class JaCadastradoAction extends DispatchAction {
 		
 		ActionMessages msgs = new ActionMessages();
 		
-		// valida se cpf é válido
+		// valida se cpf ï¿½ vï¿½lido
 		if (!Utilitarios.validaCpf(cpf)) {
 			msgs.add("msg", new ActionMessage("cadastro.cpf.invalido"));
 		} 

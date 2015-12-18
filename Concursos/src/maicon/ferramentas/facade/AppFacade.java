@@ -45,7 +45,7 @@ public class AppFacade extends FacadeBean {
 		}
 	}
 	
-	public static Candidato buscarCandidatoPorInscricao(String numeroInscricao, Integer idConcurso) throws FacadeException{
+	public static Candidato buscarCandidatoPorInscricao(Integer numeroInscricao, Integer idConcurso) throws FacadeException{
 		EntityManager em = BasicService.getEntityManager();
 		CandidatoDAO candidatoDAO = new CandidatoDAO();
 		try {
@@ -92,7 +92,7 @@ public class AppFacade extends FacadeBean {
 		return cargos;
 	}
 	
-	public static BoletoConcurso geraBoleto(String inscricao, Integer codConcurso) throws FacadeException{
+	public static BoletoConcurso geraBoleto(Integer inscricao, Integer codConcurso) throws FacadeException{
 		EntityManager em = BasicService.getEntityManager();
 		EntityTransaction tr = em.getTransaction();
 		
@@ -125,7 +125,7 @@ public class AppFacade extends FacadeBean {
 							candidato.getConcurso().getPrefeitura());
 			
 			String nossoNumero = 
-					numeroConvenio + Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 10);
+					numeroConvenio + Utilitarios.completaComZeros(candidato.getNumeroInscricao().toString(), 10);
 			
 			String codigoBarras = 
 					ExcelFacade.montaCodigoBarrasBancoBrasil(
@@ -140,13 +140,14 @@ public class AppFacade extends FacadeBean {
 			boleto.setLinhaDigitavel(
 					ExcelFacade.montaLinhaDigitavelBancoBrasil(codigoBarras));
 			boleto.setNossoNumero(nossoNumero);			
-			boleto.setNumeroDocumento(Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
-			boleto.setNumeroInscricao(Utilitarios.completaComZeros(candidato.getNumeroInscricao(), 6));
+			boleto.setNumeroDocumento(Utilitarios.completaComZeros(candidato.getNumeroInscricao().toString(), 6));
+			boleto.setNumeroInscricao(Utilitarios.completaComZeros(candidato.getNumeroInscricao().toString(), 6));
 			boleto.setSacado(candidato.getNome());
 			boleto.setValor(candidato.getFuncao().getValor());
 			boleto.setCedente(cedente);
 			boleto.setCnpj(cnpj);
 			boleto.setAgenciaConta(agenciaConta);
+			boleto.setFuncaoCandidato(candidato.getFuncao().getDescricao());
 			
 			new GenericDAO<BoletoConcurso>().salvar(boleto, em);
 			
