@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.14" id="1">
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
-    <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="propertyBindings">
         <structure>
@@ -15,42 +15,6 @@
         <structure>
             <property name="name">rowFetchSize</property>
             <property name="id">1935</property>
-        </structure>
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">1934</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">1934</property>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">1934</property>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">1934</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">1934</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">1934</property>
-        </structure>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">1934</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">1934</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">1934</property>
         </structure>
     </list-property>
     <property name="units">mm</property>
@@ -272,6 +236,18 @@ imagem = null;]]></method>
                     <text-property name="displayName">cnpj</text-property>
                     <text-property name="heading">cnpj</text-property>
                 </structure>
+                <structure>
+                    <property name="columnName">funcao_candidato</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">funcao_candidato</text-property>
+                    <text-property name="heading">funcao_candidato</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">lotacao_candidato</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">lotacao_candidato</text-property>
+                    <text-property name="heading">lotacao_candidato</text-property>
+                </structure>
             </list-property>
             <list-property name="parameters">
                 <structure>
@@ -367,6 +343,16 @@ imagem = null;]]></method>
                     <structure>
                         <property name="position">16</property>
                         <property name="name">cnpj</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">funcao_candidato</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">lotacao_candidato</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
@@ -485,6 +471,20 @@ imagem = null;]]></method>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">funcao_candidato</property>
+                    <property name="nativeName">funcao_candidato</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">lotacao_candidato</property>
+                    <property name="nativeName">lotacao_candidato</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select 
 cod_boleto_concurso, 
@@ -502,7 +502,9 @@ cpf_sacado,
 nome_concurso, 
 cedente,
 agencia_conta,
-cnpj
+cnpj,
+funcao_candidato,
+lotacao_candidato
 from concursos.boleto_concurso
 where cod_boleto_concurso = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
@@ -785,6 +787,16 @@ where cod_boleto_concurso = ?]]></xml-property>
                 <structure>
                     <property name="name">cnpj</property>
                     <expression name="expression">dataSetRow["cnpj"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">funcao_candidato</property>
+                    <expression name="expression">dataSetRow["funcao_candidato"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">lotacao_candidato</property>
+                    <expression name="expression">dataSetRow["lotacao_candidato"]</expression>
                     <property name="dataType">string</property>
                 </structure>
             </list-property>
@@ -1329,7 +1341,7 @@ where cod_boleto_concurso = ?]]></xml-property>
                                                 </text>
                                                 <text id="1956">
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[Cargo: <VALUE-OF>row["cargo"]</VALUE-OF>]]></text-property>
+                                                    <text-property name="content"><![CDATA[Cargo: <VALUE-OF>row["cargo"]</VALUE-OF> <br/>Função: <VALUE-OF>row["funcao_candidato"]</VALUE-OF> <br/>Lotação: <VALUE-OF>row["lotacao_candidato"]</VALUE-OF>]]></text-property>
                                                 </text>
                                                 <text id="1974">
                                                     <property name="contentType">html</property>
@@ -1388,7 +1400,7 @@ Não receber após vencimento]]></text-property>
                                             </cell>
                                         </row>
                                         <row id="1928">
-                                            <property name="height">10mm</property>
+                                            <property name="height">5mm</property>
                                             <cell id="1929"/>
                                             <cell id="1930"/>
                                             <cell id="1931"/>
@@ -2552,7 +2564,7 @@ Não receber após vencimento]]></text-property>
                                                 <property name="paddingRight">0pt</property>
                                                 <text id="1967">
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[Cargo: <VALUE-OF>row["cargo"]</VALUE-OF>]]></text-property>
+                                                    <text-property name="content"><![CDATA[Cargo: <VALUE-OF>row["cargo"]</VALUE-OF> <br/>Função: <VALUE-OF>row["funcao_candidato"]</VALUE-OF> <br/>Lotação: <VALUE-OF>row["lotacao_candidato"]</VALUE-OF>]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1224">
@@ -3386,6 +3398,7 @@ CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF>]]></text-pr
                 </row>
             </detail>
         </table>
+        <data id="1978"/>
     </body>
     <list-property name="images">
         <structure>

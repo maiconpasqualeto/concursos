@@ -80,6 +80,9 @@ public class BoletoConcurso {
 	
 	@Column(name="funcao_candidato")
 	private String funcaoCandidato;
+	
+	@Column(name="lotacao_candidato")
+	private String lotacaoCandidato;
 		
 	public Integer getId() {
 		return id;
@@ -215,6 +218,14 @@ public class BoletoConcurso {
 
 	public void setFuncaoCandidato(String funcaoCandidato) {
 		this.funcaoCandidato = funcaoCandidato;
+	}
+
+	public String getLotacaoCandidato() {
+		return lotacaoCandidato;
+	}
+
+	public void setLotacaoCandidato(String lotacaoCandidato) {
+		this.lotacaoCandidato = lotacaoCandidato;
 	}
 	
 }
