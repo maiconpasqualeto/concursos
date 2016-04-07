@@ -183,7 +183,7 @@ public class InscricaoAction extends DispatchAction {
 		cIdadeMaxima.set(Calendar.MILLISECOND, 0);
 		
 		Calendar cIdadeMinima = GregorianCalendar.getInstance();
-		cIdadeMinima.add(Calendar.YEAR, -17);
+		cIdadeMinima.add(Calendar.YEAR, -15);
 		cIdadeMinima.set(Calendar.AM_PM, Calendar.AM);
 		cIdadeMinima.set(Calendar.HOUR, 0);
 		cIdadeMinima.set(Calendar.MINUTE, 0);
