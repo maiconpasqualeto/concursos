@@ -28,7 +28,7 @@ public class ExCandidatoDAO extends GenericDAO<ExCandidato> {
 		ExCandidato candidato = null;
 		
 		try{
-			query = em.createQuery("from ExCandidato as c where c.cpf = :cpf");
+			query = em.createQuery("from ExCandidato as c where c.cpf = :cpf join fetch c.concurso as co");
 			query.setParameter("cpf", cpf);
 			query.setMaxResults(1);
 			List<ExCandidato> lista = query.getResultList();

@@ -131,7 +131,8 @@ public class AppFacade extends FacadeBean {
 					ExcelFacade.montaCodigoBarrasBancoBrasil(
 							candidato.getFuncao().getValor().floatValue(), 
 							nossoNumero, 
-							fatorVendimento.toString());
+							fatorVendimento.toString(),
+							concurso.getCarteira());
 			
 			boleto.setCodigoDeBarra(codigoBarras);
 			boleto.setCpfSacado(candidato.getCpf());

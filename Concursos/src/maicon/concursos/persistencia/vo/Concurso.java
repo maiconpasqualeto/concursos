@@ -75,6 +75,9 @@ public class Concurso {
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
 	
+	@Column(name="carteira")
+	private String carteira;
+	
 	@ManyToMany(targetEntity=Candidato.class, mappedBy="concurso", fetch=FetchType.LAZY)
 	private List<Candidato> candidatos;	
 	
@@ -204,6 +207,14 @@ public class Concurso {
 
 	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
+	}
+
+	public String getCarteira() {
+		return carteira;
+	}
+
+	public void setCarteira(String carteira) {
+		this.carteira = carteira;
 	}
 	
 }
