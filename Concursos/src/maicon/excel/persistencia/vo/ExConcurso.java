@@ -27,6 +27,9 @@ public class ExConcurso {
 	
 	@Column(name="concurso")
 	private String descricao;
+			
+	@Column(name="carteira")
+	private String carteira;
 
 	public Integer getId() {
 		return id;
@@ -42,6 +45,14 @@ public class ExConcurso {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getCarteira() {
+		return carteira;
+	}
+
+	public void setCarteira(String carteira) {
+		this.carteira = carteira;
 	}
 	
 }

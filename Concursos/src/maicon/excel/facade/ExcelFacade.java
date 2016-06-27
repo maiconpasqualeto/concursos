@@ -126,7 +126,7 @@ public class ExcelFacade extends FacadeBean {
 			
 			String codigoBarras = 
 					montaCodigoBarrasBancoBrasil(
-							candidato.getCargo().getValor(), nossoNumero, fatorVendimento.toString());
+							candidato.getCargo().getValor(), nossoNumero, fatorVendimento.toString(), candidato.getConcurso().getCarteira());
 			
 			boleto.setCodigoDeBarra(codigoBarras);
 			boleto.setCpfSacado(candidato.getCpf());
@@ -207,7 +207,7 @@ public class ExcelFacade extends FacadeBean {
 	 * @return
 	 */
 	public static String montaCodigoBarrasBancoBrasil(
-			Float valor, String nossoNumero, String fatorVencimento){
+			Float valor, String nossoNumero, String fatorVencimento, String carteira){
 		
 		//DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 		
@@ -219,7 +219,8 @@ public class ExcelFacade extends FacadeBean {
 		codigoBarra.append(Utilitarios.completaComZeros(Utilitarios.removeVirgula(strValor), 10));
 		codigoBarra.append("000000");
 		codigoBarra.append(nossoNumero);
-		codigoBarra.append("18");
+		//codigoBarra.append("18");
+		codigoBarra.append(Utilitarios.completaComZeros(carteira, 2));
 		
 		// calcula e insere o d�gito verificador na posi��o 4
 		String digitoVerificador = Utilitarios.calculaDigitoVerificadorModulo11(codigoBarra.toString(), 2, 9, 1);
