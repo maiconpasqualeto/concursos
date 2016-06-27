@@ -150,6 +150,7 @@ public class AppFacade extends FacadeBean {
 			boleto.setAgenciaConta(agenciaConta);
 			boleto.setFuncaoCandidato(candidato.getFuncao().getDescricao());
 			boleto.setLotacaoCandidato(candidato.getLotacao().getDescricao());
+			boleto.setCarteira(concurso.getCarteira());
 			
 			new GenericDAO<BoletoConcurso>().salvar(boleto, em);
 			
