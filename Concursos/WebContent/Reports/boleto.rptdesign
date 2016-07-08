@@ -892,7 +892,7 @@ where cod_boleto_concurso = ?]]></xml-property>
                                                 <text id="90">
                                                     <property name="fontSize">6pt</property>
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[<B>CEDENTE</B>]]></text-property>
+                                                    <text-property name="content"><![CDATA[<B>BENEFICIÁRIO</B>]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="64">
@@ -998,7 +998,7 @@ where cod_boleto_concurso = ?]]></xml-property>
                                                 <text id="94">
                                                     <property name="fontSize">xx-small</property>
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[<B>SACADO</B>]]></text-property>
+                                                    <text-property name="content"><![CDATA[<B>PAGADOR</B>]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="76">
@@ -1383,13 +1383,12 @@ Não receber após vencimento]]></text-property>
                                         <row id="150">
                                             <cell id="151"/>
                                             <cell id="152"/>
-                                            <cell id="153"/>
-                                            <cell id="154">
-                                                <property name="colSpan">2</property>
+                                            <cell id="153">
+                                                <property name="colSpan">3</property>
                                                 <property name="rowSpan">1</property>
                                                 <text id="156">
                                                     <property name="fontSize">xx-small</property>
-                                                    <property name="textAlign">center</property>
+                                                    <property name="textAlign">right</property>
                                                     <property name="contentType">auto</property>
                                                     <text-property name="content"><![CDATA[Autenticação Mecânica]]></text-property>
                                                 </text>
@@ -1737,7 +1736,7 @@ Não receber após vencimento]]></text-property>
                                                     <property name="marginTop">0pt</property>
                                                     <property name="paddingTop">1pt</property>
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[<B>CEDENTE</B>]]></text-property>
+                                                    <text-property name="content"><![CDATA[<B>BENEFICIÁRIO</B>]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1581">
@@ -3130,7 +3129,7 @@ Não receber após vencimento]]></text-property>
                                                 <property name="verticalAlign">bottom</property>
                                                 <text id="1965">
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[Sacado: <VALUE-OF>row["sacado"]</VALUE-OF> - 
+                                                    <text-property name="content"><![CDATA[Pagador: <VALUE-OF>row["sacado"]</VALUE-OF> - 
 N. Inscrição: <VALUE-OF>row["numero_inscricao"]</VALUE-OF> -
 CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF>]]></text-property>
                                                 </text>
@@ -3357,24 +3356,12 @@ CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF>]]></text-pr
                                                 <property name="paddingRight">0pt</property>
                                             </cell>
                                             <cell id="1684">
+                                                <property name="colSpan">4</property>
+                                                <property name="rowSpan">1</property>
                                                 <property name="paddingTop">0pt</property>
                                                 <property name="paddingBottom">0pt</property>
                                                 <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1685">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1686">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1687">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
+                                                <property name="textAlign">right</property>
                                                 <text id="1904">
                                                     <property name="fontSize">6pt</property>
                                                     <property name="marginTop">0pt</property>
