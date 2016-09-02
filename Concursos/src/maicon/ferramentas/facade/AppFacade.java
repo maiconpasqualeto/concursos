@@ -125,7 +125,7 @@ public class AppFacade extends FacadeBean {
 							candidato.getConcurso().getPrefeitura());
 			
 			String nossoNumero = 
-					numeroConvenio + Utilitarios.completaComZeros(candidato.getNumeroInscricao().toString(), 10);
+					numeroConvenio.trim() + Utilitarios.completaComZeros(candidato.getNumeroInscricao().toString(), 10);
 			
 			String codigoBarras = 
 					ExcelFacade.montaCodigoBarrasBancoBrasil(
@@ -151,6 +151,10 @@ public class AppFacade extends FacadeBean {
 			boleto.setFuncaoCandidato(candidato.getFuncao().getDescricao());
 			boleto.setLotacaoCandidato(candidato.getLotacao().getDescricao());
 			boleto.setCarteira(concurso.getCarteira());
+			boleto.setSacadoEndereco(candidato.getEndereco() + ", " + candidato.getNumeroEndereco()); 
+			boleto.setSacadoCidade(candidato.getCidade());
+			boleto.setSacadoUF(candidato.getUf());
+			boleto.setSacadoCEP(candidato.getCep());
 			
 			new GenericDAO<BoletoConcurso>().salvar(boleto, em);
 			

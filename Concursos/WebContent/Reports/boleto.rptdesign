@@ -5,6 +5,42 @@
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="propertyBindings">
         <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1934</property>
+        </structure>
+        <structure>
             <property name="name">queryText</property>
             <property name="id">1935</property>
         </structure>
@@ -139,122 +175,7 @@ imagem = null;]]></method>
         </script-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set Concursos" id="1935">
             <property name="nullsOrdering">nulls lowest</property>
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">cod_boleto_concurso</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">cod_boleto_concurso</text-property>
-                    <text-property name="heading">cod_boleto_concurso</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">numero_inscricao</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">numero_inscricao</text-property>
-                    <text-property name="heading">numero_inscricao</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">numero_documento</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">numero_documento</text-property>
-                    <text-property name="heading">numero_documento</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_emissao</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_emissao</text-property>
-                    <text-property name="heading">data_emissao</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">codigo_barra</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">codigo_barra</text-property>
-                    <text-property name="heading">codigo_barra</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">nosso_numero</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">nosso_numero</text-property>
-                    <text-property name="heading">nosso_numero</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">valor</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">valor</text-property>
-                    <text-property name="heading">valor</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">data_vencimento</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">data_vencimento</text-property>
-                    <text-property name="heading">data_vencimento</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">linha_digitavel</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">linha_digitavel</text-property>
-                    <text-property name="heading">linha_digitavel</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">sacado</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">sacado</text-property>
-                    <text-property name="heading">sacado</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">cargo</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">cargo</text-property>
-                    <text-property name="heading">cargo</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">cpf_sacado</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">cpf_sacado</text-property>
-                    <text-property name="heading">cpf_sacado</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">nome_concurso</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">nome_concurso</text-property>
-                    <text-property name="heading">nome_concurso</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">cedente</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">cedente</text-property>
-                    <text-property name="heading">cedente</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">agencia_conta</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">agencia_conta</text-property>
-                    <text-property name="heading">agencia_conta</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">cnpj</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">cnpj</text-property>
-                    <text-property name="heading">cnpj</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">funcao_candidato</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">funcao_candidato</text-property>
-                    <text-property name="heading">funcao_candidato</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">lotacao_candidato</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">lotacao_candidato</text-property>
-                    <text-property name="heading">lotacao_candidato</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">carteira</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">carteira</text-property>
-                    <text-property name="heading">carteira</text-property>
-                </structure>
-            </list-property>
+            <list-property name="columnHints"/>
             <list-property name="parameters">
                 <structure>
                     <property name="name">codigoBoleto</property>
@@ -363,7 +284,22 @@ imagem = null;]]></method>
                     </structure>
                     <structure>
                         <property name="position">19</property>
-                        <property name="name">carteira</property>
+                        <property name="name">sacado_endereco</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">sacado_cidade</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">sacado_uf</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">sacado_cep</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
@@ -375,133 +311,128 @@ imagem = null;]]></method>
                     <property name="name">cod_boleto_concurso</property>
                     <property name="nativeName">cod_boleto_concurso</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">numero_inscricao</property>
                     <property name="nativeName">numero_inscricao</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">numero_documento</property>
                     <property name="nativeName">numero_documento</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">data_emissao</property>
                     <property name="nativeName">data_emissao</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">codigo_barra</property>
                     <property name="nativeName">codigo_barra</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">nosso_numero</property>
                     <property name="nativeName">nosso_numero</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
                     <property name="name">valor</property>
                     <property name="nativeName">valor</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">data_vencimento</property>
                     <property name="nativeName">data_vencimento</property>
                     <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
                     <property name="name">linha_digitavel</property>
                     <property name="nativeName">linha_digitavel</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">sacado</property>
                     <property name="nativeName">sacado</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">cargo</property>
                     <property name="nativeName">cargo</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">cpf_sacado</property>
                     <property name="nativeName">cpf_sacado</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">13</property>
                     <property name="name">nome_concurso</property>
                     <property name="nativeName">nome_concurso</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">14</property>
                     <property name="name">cedente</property>
                     <property name="nativeName">cedente</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">15</property>
                     <property name="name">agencia_conta</property>
                     <property name="nativeName">agencia_conta</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">16</property>
                     <property name="name">cnpj</property>
                     <property name="nativeName">cnpj</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">funcao_candidato</property>
                     <property name="nativeName">funcao_candidato</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">lotacao_candidato</property>
                     <property name="nativeName">lotacao_candidato</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">19</property>
-                    <property name="name">carteira</property>
-                    <property name="nativeName">carteira</property>
+                    <property name="position">20</property>
+                    <property name="name">sacado_endereco</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">sacado_cidade</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">sacado_uf</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">sacado_cep</property>
+                    <property name="dataType">string</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select 
@@ -523,7 +454,11 @@ agencia_conta,
 cnpj,
 funcao_candidato,
 lotacao_candidato,
-carteira
+carteira,
+sacado_endereco,
+sacado_cidade,
+sacado_uf,
+sacado_cep
 from concursos.boleto_concurso
 where cod_boleto_concurso = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
@@ -543,6 +478,9 @@ where cod_boleto_concurso = ?]]></xml-property>
           <design:scale>0</design:scale>
           <design:nullability>Unknown</design:nullability>
         </design:attributes>
+        <design:inputAttributes>
+          <design:elementAttributes/>
+        </design:inputAttributes>
       </design:ParameterDefinition>
     </parameter>
   </DataSetParameters>
@@ -823,6 +761,26 @@ where cod_boleto_concurso = ?]]></xml-property>
                     <expression name="expression">dataSetRow["carteira"]</expression>
                     <property name="dataType">string</property>
                 </structure>
+                <structure>
+                    <property name="name">sacado_endereco</property>
+                    <expression name="expression">dataSetRow["sacado_endereco"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sacado_cidade</property>
+                    <expression name="expression">dataSetRow["sacado_cidade"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sacado_uf</property>
+                    <expression name="expression">dataSetRow["sacado_uf"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">sacado_cep</property>
+                    <expression name="expression">dataSetRow["sacado_cep"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
             </list-property>
             <property name="pageBreakInterval">50</property>
             <column id="53"/>
@@ -1050,7 +1008,7 @@ where cod_boleto_concurso = ?]]></xml-property>
                                                 <property name="borderRightWidth">thin</property>
                                                 <text id="1980">
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[<VALUE-OF>row["sacado"]</VALUE-OF> CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF>]]></text-property>
+                                                    <text-property name="content"><![CDATA[<VALUE-OF>row["sacado"]</VALUE-OF> CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF> - <VALUE-OF>row["sacado_endereco"]</VALUE-OF> - <VALUE-OF>row["sacado_cidade"]</VALUE-OF>-<VALUE-OF>row["sacado_uf"]</VALUE-OF> CEP: <VALUE-OF>row["sacado_cep"]</VALUE-OF> ]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="82">
@@ -1343,7 +1301,7 @@ where cod_boleto_concurso = ?]]></xml-property>
                                             </cell>
                                         </row>
                                         <row id="125">
-                                            <property name="height">50mm</property>
+                                            <property name="height">40mm</property>
                                             <cell id="126">
                                                 <property name="colSpan">5</property>
                                                 <property name="rowSpan">1</property>
@@ -1396,7 +1354,7 @@ Não receber após vencimento]]></text-property>
                                             </cell>
                                         </row>
                                         <row id="1922">
-                                            <property name="height">20mm</property>
+                                            <property name="height">25mm</property>
                                             <cell id="1923">
                                                 <property name="borderBottomColor">#000000</property>
                                                 <property name="borderBottomStyle">dotted</property>
@@ -1424,7 +1382,7 @@ Não receber após vencimento]]></text-property>
                                             </cell>
                                         </row>
                                         <row id="1928">
-                                            <property name="height">5mm</property>
+                                            <property name="height">1mm</property>
                                             <cell id="1929"/>
                                             <cell id="1930"/>
                                             <cell id="1931"/>
@@ -1639,7 +1597,7 @@ Não receber após vencimento]]></text-property>
                                                 <property name="verticalAlign">middle</property>
                                                 <text id="1353">
                                                     <property name="contentType">auto</property>
-                                                    <text-property name="content"><![CDATA[Pagável em qualquer banco até o vencimento]]></text-property>
+                                                    <text-property name="content"><![CDATA[Pagável em qualquer banco até o vencimento, após, atualize o boleto no site bb.com.br.]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1082">
@@ -2423,7 +2381,7 @@ Não receber após vencimento]]></text-property>
                                             </cell>
                                         </row>
                                         <row id="1180">
-                                            <property name="height">3mm</property>
+                                            <property name="height">5mm</property>
                                             <cell id="1182">
                                                 <property name="colSpan">9</property>
                                                 <property name="rowSpan">1</property>
@@ -2588,7 +2546,7 @@ Não receber após vencimento]]></text-property>
                                                 <property name="paddingRight">0pt</property>
                                                 <text id="1967">
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[Cargo: <VALUE-OF>row["cargo"]</VALUE-OF> <br/>Função: <VALUE-OF>row["funcao_candidato"]</VALUE-OF> <br/>Lotação: <VALUE-OF>row["lotacao_candidato"]</VALUE-OF>]]></text-property>
+                                                    <text-property name="content"><![CDATA[Cargo: <VALUE-OF>row["cargo"]</VALUE-OF>]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="1224">
@@ -2622,49 +2580,16 @@ Não receber após vencimento]]></text-property>
                                         <row id="1849">
                                             <property name="height">1mm</property>
                                             <cell id="1850">
+                                                <property name="colSpan">9</property>
+                                                <property name="rowSpan">1</property>
                                                 <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">15pt</property>
                                                 <property name="paddingBottom">0pt</property>
                                                 <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1851">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1852">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1853">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1854">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1855">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1856">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1857">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1858">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
+                                                <text id="1981">
+                                                    <property name="contentType">html</property>
+                                                    <text-property name="content"><![CDATA[Função: <VALUE-OF>row["funcao_candidato"]</VALUE-OF>]]></text-property>
+                                                </text>
                                             </cell>
                                             <cell id="1859">
                                                 <property name="paddingTop">0pt</property>
@@ -2680,49 +2605,16 @@ Não receber após vencimento]]></text-property>
                                         <row id="1594">
                                             <property name="height">2mm</property>
                                             <cell id="1595">
+                                                <property name="colSpan">9</property>
+                                                <property name="rowSpan">1</property>
                                                 <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">15pt</property>
                                                 <property name="paddingBottom">0pt</property>
                                                 <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1596">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1597">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1598">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1599">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1600">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1601">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1602">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1603">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
+                                                <text id="1982">
+                                                    <property name="contentType">html</property>
+                                                    <text-property name="content"><![CDATA[Lotação: <VALUE-OF>row["lotacao_candidato"]</VALUE-OF>]]></text-property>
+                                                </text>
                                             </cell>
                                             <cell id="1604">
                                                 <property name="paddingTop">0pt</property>
@@ -2749,7 +2641,7 @@ Não receber após vencimento]]></text-property>
                                             </cell>
                                         </row>
                                         <row id="1582">
-                                            <property name="height">3mm</property>
+                                            <property name="height">5mm</property>
                                             <cell id="1583">
                                                 <property name="paddingTop">0pt</property>
                                                 <property name="paddingBottom">0pt</property>
@@ -2924,7 +2816,7 @@ Não receber após vencimento]]></text-property>
                                             </cell>
                                         </row>
                                         <row id="1606">
-                                            <property name="height">3mm</property>
+                                            <property name="height">5mm</property>
                                             <cell id="1607">
                                                 <property name="paddingTop">0pt</property>
                                                 <property name="paddingBottom">0pt</property>

@@ -86,6 +86,19 @@ public class BoletoConcurso {
 	
 	@Column(name="carteira")
 	private String carteira;
+	
+	@Column(name="sacado_endereco")
+	private String sacadoEndereco;
+	
+	@Column(name="sacado_cidade")
+	private String sacadoCidade;
+	
+	@Column(name="sacado_uf")
+	private String sacadoUF;
+	
+	@Column(name="sacado_cep")
+	private String sacadoCEP;
+	
 		
 	public Integer getId() {
 		return id;
@@ -238,5 +251,37 @@ public class BoletoConcurso {
 	public void setCarteira(String carteira) {
 		this.carteira = carteira;
 	}
-		
+
+	public String getSacadoEndereco() {
+		return sacadoEndereco;
+	}
+
+	public void setSacadoEndereco(String sacadoEndereco) {
+		this.sacadoEndereco = sacadoEndereco;
+	}
+
+	public String getSacadoCidade() {
+		return sacadoCidade;
+	}
+
+	public void setSacadoCidade(String sacadoCidade) {
+		this.sacadoCidade = sacadoCidade;
+	}
+
+	public String getSacadoUF() {
+		return sacadoUF;
+	}
+
+	public void setSacadoUF(String sacadoUF) {
+		this.sacadoUF = sacadoUF;
+	}
+
+	public String getSacadoCEP() {
+		return sacadoCEP;
+	}
+
+	public void setSacadoCEP(String sacadoCEP) {
+		this.sacadoCEP = sacadoCEP;
+	}
+	
 }
