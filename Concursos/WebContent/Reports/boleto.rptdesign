@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.14" id="1">
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
-    <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="propertyBindings">
         <structure>
@@ -1008,7 +1008,7 @@ where cod_boleto_concurso = ?]]></xml-property>
                                                 <property name="borderRightWidth">thin</property>
                                                 <text id="1980">
                                                     <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[<VALUE-OF>row["sacado"]</VALUE-OF> CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF> - <VALUE-OF>row["sacado_endereco"]</VALUE-OF> - <VALUE-OF>row["sacado_cidade"]</VALUE-OF>-<VALUE-OF>row["sacado_uf"]</VALUE-OF> CEP: <VALUE-OF>row["sacado_cep"]</VALUE-OF> ]]></text-property>
+                                                    <text-property name="content"><![CDATA[<VALUE-OF>row["sacado"]</VALUE-OF> CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF> - <VALUE-OF>row["sacado_endereco"]</VALUE-OF> - <VALUE-OF>row["sacado_cidade"]</VALUE-OF>-<VALUE-OF>row["sacado_uf"]</VALUE-OF> CEP: <VALUE-OF format="@@@@@-@@@">row["sacado_cep"]</VALUE-OF> ]]></text-property>
                                                 </text>
                                             </cell>
                                             <cell id="82">
@@ -2940,54 +2940,17 @@ Não receber após vencimento]]></text-property>
                                         <row id="1642">
                                             <property name="height">2mm</property>
                                             <cell id="1643">
+                                                <property name="colSpan">10</property>
+                                                <property name="rowSpan">2</property>
                                                 <property name="paddingTop">0pt</property>
                                                 <property name="paddingBottom">0pt</property>
                                                 <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1644">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1645">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1646">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1647">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1648">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1649">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1650">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1651">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                            </cell>
-                                            <cell id="1652">
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
+                                                <text id="1965">
+                                                    <property name="contentType">html</property>
+                                                    <text-property name="content"><![CDATA[Pagador: <VALUE-OF>row["sacado"]</VALUE-OF> - 
+N. Inscrição: <VALUE-OF>row["numero_inscricao"]</VALUE-OF> -
+CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF> - <VALUE-OF>row["sacado_endereco"]</VALUE-OF> - <VALUE-OF>row["sacado_cidade"]</VALUE-OF>-<VALUE-OF>row["sacado_uf"]</VALUE-OF> CEP: <VALUE-OF format="@@@@@-@@@">row["sacado_cep"]</VALUE-OF>]]></text-property>
+                                                </text>
                                             </cell>
                                             <cell id="1653">
                                                 <property name="borderLeftColor">#000000</property>
@@ -3010,23 +2973,6 @@ Não receber após vencimento]]></text-property>
                                         </row>
                                         <row id="1276">
                                             <property name="height">7mm</property>
-                                            <cell id="1278">
-                                                <property name="colSpan">10</property>
-                                                <property name="rowSpan">1</property>
-                                                <property name="borderBottomColor">#000000</property>
-                                                <property name="borderBottomStyle">solid</property>
-                                                <property name="borderBottomWidth">thin</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="verticalAlign">bottom</property>
-                                                <text id="1965">
-                                                    <property name="contentType">html</property>
-                                                    <text-property name="content"><![CDATA[Pagador: <VALUE-OF>row["sacado"]</VALUE-OF> - 
-N. Inscrição: <VALUE-OF>row["numero_inscricao"]</VALUE-OF> -
-CPF: <VALUE-OF format="@@@.@@@.@@@-@@ ">row["cpf_sacado"]</VALUE-OF>]]></text-property>
-                                                </text>
-                                            </cell>
                                             <cell id="1290">
                                                 <property name="borderBottomColor">#000000</property>
                                                 <property name="borderBottomStyle">solid</property>
