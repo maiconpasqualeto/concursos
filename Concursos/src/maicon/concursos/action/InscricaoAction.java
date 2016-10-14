@@ -279,7 +279,7 @@ public class InscricaoAction extends DispatchAction {
 		f.set("descricaoUfNascimento", ufNascimento.getEstado());*/
 		
 		request.setAttribute("nomeConcurso", request.getParameter("nomeConcurso"));
-		request.setAttribute("prefeitura", request.getParameter("prefeitura"));
+		request.setAttribute("prefeitura", c.getPrefeitura());
 		
 		request.setAttribute("anoConcurso", new SimpleDateFormat("yyyy").format(new Date()));
 		
