@@ -182,10 +182,10 @@
 				<table>
 					<TR>
 						<td>
-							<%-- <input id="btnimprimir" runat="server" name="btnimprimir" 
-									onclick="CallPrint('efetuaInscricao.do?acao=Imprimir&nomeConcurso=<bean:write name="nomeConcurso"/>&prefeitura=<bean:write name="prefeitura"/>&codConcurso=<bean:write name="codConcurso"/>&inscricao=');" type="button" value="Imprimir" /> --%>
-							<input type="button" value="Imprimir Boleto" name="imprimirboleto" 
-								onclick="popup('Imprimir','750','600','no')" />							
+							<input id="btnimprimir" runat="server" name="btnimprimir" 
+									onclick="CallPrint('efetuaInscricao.do?acao=Imprimir&nomeConcurso=<bean:write name="nomeConcurso"/>&prefeitura=<bean:write name="prefeitura" />&codConcurso=<bean:write name="codConcurso"/>&inscricao=');" type="button" value="Imprimir" />
+							<%-- <input type="button" value="Imprimir Boleto" name="imprimirboleto"  
+								onclick="popup('Imprimir','750','600','no')" />	 --%>
 							<html:submit property="acao" value="Voltar" ></html:submit>
 						</td>
 					</TR>
