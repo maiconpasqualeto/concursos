@@ -11,7 +11,7 @@
 	<script language="javascript">
 		function CallPrint(strid) {			
 			var inscricao = document.getElementById('inscricao').value;
-			var WinPrint = window.open(strid + inscricao,'Impressão',' "style:height=900,width=800,top=110,left=50,scrollbars=1" ');
+			var WinPrint = window.open(strid + inscricao,'ImpressÃ£o',' "style:height=900,width=800,top=110,left=50,scrollbars=1" ');
 		}
 		function popup(nome,w,h,scroll){
 			var inscricao = $("#inscricao").val();
@@ -46,7 +46,7 @@
 					<tr align="center"><td colspan="4"><B><bean:write name="nomeConcurso"/></B></td></tr>
 					<TR>
 						<TD>
-							<label>Inscrição</label> 
+							<label>InscriÃ§Ã£o</label> 
 							<B><bean:write name="inscricaoForm" property="numeroInscricao" /></B>
 							<html:hidden property="numeroInscricao" styleId="inscricao"/>
 						</TD>
@@ -78,11 +78,11 @@
 					</TR>
 					<TR>
 						<TD  colspan="3">
-							<label>Endereço</label> 
+							<label>EndereÃ§o</label> 
 							<bean:write name="inscricaoForm" property="endereco" />
 						</TD>
 						<TD>
-							<label>Número</label> 
+							<label>NÃºmero</label> 
 							<bean:write name="inscricaoForm" property="numero" />
 						</TD>
 					</TR>
@@ -126,7 +126,7 @@
 					</TR>
 					<TR>
 						<TD  colspan="4">
-							<label>Nome da mãe</label> 
+							<label>Nome da mÃ£e</label> 
 							<bean:write name="inscricaoForm" property="nomeMae" />
 						</TD>
 					</TR>
@@ -150,12 +150,12 @@
 					</TR>
 					<TR>
 						<TD colspan="2">
-							<label>Possui Deficiência física</label>
+							<label>Possui DeficiÃªncia fÃ­sica</label>
 							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="true">Sim</logic:equal>
-							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="false">Não</logic:equal>
+							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="false">NÃ£o</logic:equal>
 						</TD>
 						<TD colspan="2">
-							<label>Deficiência</label> 
+							<label>DeficiÃªncia</label> 
 							<bean:write name="inscricaoForm" property="deficiencia" />
 						</TD>
 					</TR>
@@ -170,11 +170,11 @@
 							<bean:write name="inscricaoForm" property="identidadeTipo" />
 						</TD>
 						<TD>
-							<label>Número Documento</label>
+							<label>NÃºmero Documento</label>
 							<bean:write name="inscricaoForm" property="identidadeNumero" /> 
 						</TD>
 						<TD>
-							<label>Órgão Expedidor</label>
+							<label>Ã“rgÃ£o Expedidor</label>
 							<bean:write name="inscricaoForm" property="identidadeOrgaoExpedidor" /> 
 						</TD>
 					</TR>
@@ -195,5 +195,29 @@
 		</tr>
 	</table>
 	</html:form>
+	<form action="https://mpag.bb.com.br/site/mpag/â€ method="post"name="pagamento">
+		<input type="hidden" name="idConv" value="314232">
+		<input type="hidden" name="refTran" value="28713650000000004">
+		<input type="hidden" name="valor" value="100">
+		<input type="hidden" name="qtdPontos" value="">
+		<input type="hidden" name="dtVenc" value="10112016">
+		<input type="hidden" name="tpPagamento" value="2"> 
+		<input type="hidden" name="cpfCnpj" value="78276381120"> 
+		<input type="hidden" name="indicadorPessoa" value="1"> 
+		<input type="hidden" name="valorDesconto" value=""> 
+		<input type="hidden" name="dataLimiteDesconto" value=""> 
+		<input type="hidden" name="tpDuplicata" value="DS">
+		<input type="hidden" name="urlRetorno" value="http://www.sixinf.com.br/index.html?123456">
+		<input type="hidden" name="urlInforma" value="">
+		<input type="hidden" name="nome" value="Maicon"> 
+		<input type="hidden" name="endereco" value="Rua Tal,123">
+		<input type="hidden" name="cidade" value="Campo Grande">
+		<input type="hidden" name="uf" value="MS"> 
+		<input type="hidden" name="cep" value="79051350"> 
+		<input type="hidden" name="msgLoja" value="Teste">
+		
+		
+		<input type="submit" value="BoletoBB"/>
+	</form>
 </body>
 </html:html>
