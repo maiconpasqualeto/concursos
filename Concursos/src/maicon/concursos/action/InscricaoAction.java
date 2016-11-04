@@ -149,6 +149,10 @@ public class InscricaoAction extends DispatchAction {
 		request.setAttribute("codConcurso", c.getId());
 		request.setAttribute("nomeConcurso", f.getString("nomeConcurso"));
 		request.setAttribute("prefeitura", f.getString("prefeitura"));
+		String codInscricao = String.valueOf(System.currentTimeMillis());		
+		request.setAttribute("refTrans", c.getNumeroConvenio() + codInscricao.substring(codInscricao.length() - 6, codInscricao.length() - 2) + Utilitarios.completaComZeros(inscricao.toString(), 6));
+		request.setAttribute("valor", funcao.getValor().toString() + "00");
+		request.setAttribute("dataVenc", new SimpleDateFormat("ddMMyyyy").format(c.getDataVencimento()));
 		
 		return mapping.findForward("sucesso");
 	}

@@ -25,16 +25,18 @@
 	</script>
 </head>
 <body>
-	<html:form styleClass="AppForm" action="/efetuaInscricao">
-	<jsp:include page="infoConcurso.jsp" flush="true" ></jsp:include>
-	<bean:define id="codConcurso">
-		<bean:write name="codConcurso"/>
-    </bean:define>
-	<html:hidden styleId="codConcurso" property="codConcurso" value="<%=codConcurso%>" />
+	
 	<table width="100%" cellpadding="0" cellspacing="0" border="0">
 		<tr>
 			<td></td>
 			<td width="650px">
+				<html:form styleClass="AppForm" action="/efetuaInscricao" style="margin: 4px;">
+				<jsp:include page="infoConcurso.jsp" flush="true" ></jsp:include>
+				<bean:define id="codConcurso">
+					<bean:write name="codConcurso"/>
+			    </bean:define>
+				<html:hidden styleId="codConcurso" property="codConcurso" value="<%=codConcurso%>" />
+			
 				<table width="100%" border="1px" cellpadding="0" cellspacing="0" border="0">
 					<tr>
 						<td colspan="4">
@@ -46,7 +48,7 @@
 					<tr align="center"><td colspan="4"><B><bean:write name="nomeConcurso"/></B></td></tr>
 					<TR>
 						<TD>
-							<label>InscriÃ§Ã£o</label> 
+							<label>Inscrição</label> 
 							<B><bean:write name="inscricaoForm" property="numeroInscricao" /></B>
 							<html:hidden property="numeroInscricao" styleId="inscricao"/>
 						</TD>
@@ -78,11 +80,11 @@
 					</TR>
 					<TR>
 						<TD  colspan="3">
-							<label>EndereÃ§o</label> 
+							<label>Endereço</label> 
 							<bean:write name="inscricaoForm" property="endereco" />
 						</TD>
 						<TD>
-							<label>NÃºmero</label> 
+							<label>Número</label> 
 							<bean:write name="inscricaoForm" property="numero" />
 						</TD>
 					</TR>
@@ -126,7 +128,7 @@
 					</TR>
 					<TR>
 						<TD  colspan="4">
-							<label>Nome da mÃ£e</label> 
+							<label>Nome da mãe</label> 
 							<bean:write name="inscricaoForm" property="nomeMae" />
 						</TD>
 					</TR>
@@ -150,12 +152,12 @@
 					</TR>
 					<TR>
 						<TD colspan="2">
-							<label>Possui DeficiÃªncia fÃ­sica</label>
+							<label>Possui Deficiência fí­sica</label>
 							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="true">Sim</logic:equal>
-							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="false">NÃ£o</logic:equal>
+							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="false">Não</logic:equal>
 						</TD>
 						<TD colspan="2">
-							<label>DeficiÃªncia</label> 
+							<label>Deficiência</label> 
 							<bean:write name="inscricaoForm" property="deficiencia" />
 						</TD>
 					</TR>
@@ -170,23 +172,50 @@
 							<bean:write name="inscricaoForm" property="identidadeTipo" />
 						</TD>
 						<TD>
-							<label>NÃºmero Documento</label>
+							<label>Número Documento</label>
 							<bean:write name="inscricaoForm" property="identidadeNumero" /> 
 						</TD>
 						<TD>
-							<label>Ã“rgÃ£o Expedidor</label>
+							<label>Órgão Expedidor</label>
 							<bean:write name="inscricaoForm" property="identidadeOrgaoExpedidor" /> 
 						</TD>
 					</TR>
 				</table>
+				</html:form>
 				<table>
 					<TR>
 						<td>
-							<input id="btnimprimir" runat="server" name="btnimprimir" 
-									onclick="CallPrint('efetuaInscricao.do?acao=Imprimir&nomeConcurso=<bean:write name="nomeConcurso"/>&prefeitura=<bean:write name="prefeitura" />&codConcurso=<bean:write name="codConcurso"/>&inscricao=');" type="button" value="Imprimir" />
+							<form action="https://mpag.bb.com.br/site/mpag/" method="post" name="pagamento">
+								<input type="hidden" name="idConv" value="314232">
+								<input type="hidden" name="refTran" value="<bean:write name="refTrans"/>">
+								<input type="hidden" name="valor" value="<bean:write name="valor"/>">
+								<input type="hidden" name="qtdPontos" value="">
+								<input type="hidden" name="dtVenc" value="<bean:write name="dataVenc"/>">
+								<input type="hidden" name="tpPagamento" value="2"> 
+								<input type="hidden" name="cpfCnpj" value="<bean:write name="inscricaoForm" property="cpf" />"> 
+								<input type="hidden" name="indicadorPessoa" value="1"> 
+								<input type="hidden" name="valorDesconto" value=""> 
+								<input type="hidden" name="dataLimiteDesconto" value=""> 
+								<input type="hidden" name="tpDuplicata" value="DS">
+								<input type="hidden" name="urlRetorno" value="http://concurso.sixinf.com.br/opcao.do?acao=Confirma&codConcurso=<bean:write name="codConcurso"/>">
+								<input type="hidden" name="urlInforma" value="">
+								<input type="hidden" name="nome" value="<bean:write name="inscricaoForm" property="nome" />"> 
+								<input type="hidden" name="endereco" value="<bean:write name="inscricaoForm" property="endereco" />">
+								<input type="hidden" name="cidade" value="<bean:write name="inscricaoForm" property="cidade" />">
+								<input type="hidden" name="uf" value="<bean:write name="inscricaoForm" property="uf" />"> 
+								<input type="hidden" name="cep" value="<bean:write name="inscricaoForm" property="cep" />"> 
+								<input type="hidden" name="msgLoja" value="Concurso: <bean:write name="nomeConcurso"/>">
+								
+								<input type="submit" value="Imprimir Boleto" />
+								<button onclick="window.location='opcao.do?acao=Confirma&codConcurso=<bean:write name="codConcurso"/>'" type="reset">Voltar</button>
+								
+							</form>
+						
+							<%-- <input id="btnimprimir" runat="server" name="btnimprimir" 
+									onclick="CallPrint('efetuaInscricao.do?acao=Imprimir&nomeConcurso=<bean:write name="nomeConcurso"/>&prefeitura=<bean:write name="prefeitura" />&codConcurso=<bean:write name="codConcurso"/>&inscricao=');" type="button" value="Imprimir" /> --%>
 							<%-- <input type="button" value="Imprimir Boleto" name="imprimirboleto"  
 								onclick="popup('Imprimir','750','600','no')" />	 --%>
-							<html:submit property="acao" value="Voltar" ></html:submit>
+							
 						</td>
 					</TR>
 				</table>
@@ -194,30 +223,8 @@
 			<td></td>
 		</tr>
 	</table>
-	</html:form>
-	<form action="https://mpag.bb.com.br/site/mpag/â€ method="post"name="pagamento">
-		<input type="hidden" name="idConv" value="314232">
-		<input type="hidden" name="refTran" value="28713650000000004">
-		<input type="hidden" name="valor" value="100">
-		<input type="hidden" name="qtdPontos" value="">
-		<input type="hidden" name="dtVenc" value="10112016">
-		<input type="hidden" name="tpPagamento" value="2"> 
-		<input type="hidden" name="cpfCnpj" value="78276381120"> 
-		<input type="hidden" name="indicadorPessoa" value="1"> 
-		<input type="hidden" name="valorDesconto" value=""> 
-		<input type="hidden" name="dataLimiteDesconto" value=""> 
-		<input type="hidden" name="tpDuplicata" value="DS">
-		<input type="hidden" name="urlRetorno" value="http://www.sixinf.com.br/index.html?123456">
-		<input type="hidden" name="urlInforma" value="">
-		<input type="hidden" name="nome" value="Maicon"> 
-		<input type="hidden" name="endereco" value="Rua Tal,123">
-		<input type="hidden" name="cidade" value="Campo Grande">
-		<input type="hidden" name="uf" value="MS"> 
-		<input type="hidden" name="cep" value="79051350"> 
-		<input type="hidden" name="msgLoja" value="Teste">
+	
 		
-		
-		<input type="submit" value="BoletoBB"/>
-	</form>
+	
 </body>
 </html:html>
