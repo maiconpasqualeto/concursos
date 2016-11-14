@@ -22,8 +22,8 @@
 						<td align="center" colspan="2"><B><bean:write name="nomeConcurso"/></B></td>
 					</tr>
 					<tr>
-						<td valign="top" colspan="2" align="center">
-							Devido a problemas técnicos, as inscrições para o Concurso de Novo Horizonte do Sul serão liberadas a partir de amanha, dia 17/03/2012
+						<td valign="top" colspan="2" align="center" style="font-size: x-large; font-weight: bold;">
+							Aguardando a abertura das inscrições.
 						</td>
 					</tr>
 					

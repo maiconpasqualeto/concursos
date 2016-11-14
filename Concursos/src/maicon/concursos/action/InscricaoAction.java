@@ -154,7 +154,12 @@ public class InscricaoAction extends DispatchAction {
 		request.setAttribute("valor", funcao.getValor().toString() + "00");
 		request.setAttribute("dataVenc", new SimpleDateFormat("ddMMyyyy").format(c.getDataVencimento()));
 		
-		return mapping.findForward("sucesso");
+		if ( "BOLETO".equals(c.getTipoEmissao()) ) {
+			request.setAttribute("convenio", c.getConvenioEcommerce());
+			return mapping.findForward("sucesso");
+		}
+		
+		return mapping.findForward("sucessoFicha");
 	}
 	
 	
@@ -282,7 +287,7 @@ public class InscricaoAction extends DispatchAction {
 		Uf ufNascimento = FacadeBean.buscar(candidato.getUfNascimento(), Uf.class);
 		f.set("descricaoUfNascimento", ufNascimento.getEstado());*/
 		
-		request.setAttribute("nomeConcurso", request.getParameter("nomeConcurso"));
+		request.setAttribute("nomeConcurso", c.getDescricao());
 		request.setAttribute("prefeitura", c.getPrefeitura());
 		
 		request.setAttribute("anoConcurso", new SimpleDateFormat("yyyy").format(new Date()));

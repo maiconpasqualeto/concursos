@@ -186,7 +186,7 @@
 					<TR>
 						<td>
 							<form action="https://mpag.bb.com.br/site/mpag/" method="post" name="pagamento">
-								<input type="hidden" name="idConv" value="314232">
+								<input type="hidden" name="idConv" value="<bean:write name="convenio"/>">
 								<input type="hidden" name="refTran" value="<bean:write name="refTrans"/>">
 								<input type="hidden" name="valor" value="<bean:write name="valor"/>">
 								<input type="hidden" name="qtdPontos" value="">
@@ -204,7 +204,7 @@
 								<input type="hidden" name="cidade" value="<bean:write name="inscricaoForm" property="cidade" />">
 								<input type="hidden" name="uf" value="<bean:write name="inscricaoForm" property="uf" />"> 
 								<input type="hidden" name="cep" value="<bean:write name="inscricaoForm" property="cep" />"> 
-								<input type="hidden" name="msgLoja" value="Concurso: <bean:write name="nomeConcurso"/>">
+								<input type="hidden" name="msgLoja" value="Concurso: <bean:write name="prefeitura"/>">
 								
 								<input type="submit" value="Imprimir Boleto" />
 								<button onclick="window.location='opcao.do?acao=Confirma&codConcurso=<bean:write name="codConcurso"/>'" type="reset">Voltar</button>

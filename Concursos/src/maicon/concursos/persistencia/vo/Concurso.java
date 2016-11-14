@@ -78,6 +78,12 @@ public class Concurso {
 	@Column(name="carteira")
 	private String carteira;
 	
+	@Column(name="tipo_emissao")
+	private String tipoEmissao;
+	
+	@Column(name="convenio_ecommerce")
+	private String convenioEcommerce;
+	
 	@ManyToMany(targetEntity=Candidato.class, mappedBy="concurso", fetch=FetchType.LAZY)
 	private List<Candidato> candidatos;	
 	
@@ -215,6 +221,22 @@ public class Concurso {
 
 	public void setCarteira(String carteira) {
 		this.carteira = carteira;
+	}
+
+	public String getTipoEmissao() {
+		return tipoEmissao;
+	}
+
+	public void setTipoEmissao(String tipoEmissao) {
+		this.tipoEmissao = tipoEmissao;
+	}
+
+	public String getConvenioEcommerce() {
+		return convenioEcommerce;
+	}
+
+	public void setConvenioEcommerce(String convenioEcommerce) {
+		this.convenioEcommerce = convenioEcommerce;
 	}
 	
 }

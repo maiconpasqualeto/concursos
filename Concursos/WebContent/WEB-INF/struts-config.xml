@@ -205,6 +205,7 @@
 				input="/jsp/inscricao.jsp"
 				validate="true">
 			<forward name="sucesso" path="/jsp/confirmacao.jsp" />
+			<forward name="sucessoFicha" path="/jsp/confirmacaoFicha.jsp" />
 			<forward name="impressao" path="/jsp/fichaimpressao.jsp" />
 			<forward name="abrirFicha" path="/jsp/inscricao.jsp" />
 			<forward name="voltar" path="/opcao.do?acao=entrada" />
