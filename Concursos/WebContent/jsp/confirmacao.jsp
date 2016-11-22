@@ -48,7 +48,7 @@
 					<tr align="center"><td colspan="4"><B><bean:write name="nomeConcurso"/></B></td></tr>
 					<TR>
 						<TD>
-							<label>Inscrição</label> 
+							<label>Inscriï¿½ï¿½o</label> 
 							<B><bean:write name="inscricaoForm" property="numeroInscricao" /></B>
 							<html:hidden property="numeroInscricao" styleId="inscricao"/>
 						</TD>
@@ -80,11 +80,11 @@
 					</TR>
 					<TR>
 						<TD  colspan="3">
-							<label>Endereço</label> 
+							<label>Endereï¿½o</label> 
 							<bean:write name="inscricaoForm" property="endereco" />
 						</TD>
 						<TD>
-							<label>Número</label> 
+							<label>Nï¿½mero</label> 
 							<bean:write name="inscricaoForm" property="numero" />
 						</TD>
 					</TR>
@@ -128,7 +128,7 @@
 					</TR>
 					<TR>
 						<TD  colspan="4">
-							<label>Nome da mãe</label> 
+							<label>Nome da mï¿½e</label> 
 							<bean:write name="inscricaoForm" property="nomeMae" />
 						</TD>
 					</TR>
@@ -152,12 +152,12 @@
 					</TR>
 					<TR>
 						<TD colspan="2">
-							<label>Possui Deficiência fí­sica</label>
+							<label>Possui Deficiï¿½ncia fï¿½sica</label>
 							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="true">Sim</logic:equal>
-							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="false">Não</logic:equal>
+							<logic:equal name="inscricaoForm" property="possuiDeficiencia" value="false">Nï¿½o</logic:equal>
 						</TD>
 						<TD colspan="2">
-							<label>Deficiência</label> 
+							<label>Deficiï¿½ncia</label> 
 							<bean:write name="inscricaoForm" property="deficiencia" />
 						</TD>
 					</TR>
@@ -172,11 +172,11 @@
 							<bean:write name="inscricaoForm" property="identidadeTipo" />
 						</TD>
 						<TD>
-							<label>Número Documento</label>
+							<label>Nï¿½mero Documento</label>
 							<bean:write name="inscricaoForm" property="identidadeNumero" /> 
 						</TD>
 						<TD>
-							<label>Órgão Expedidor</label>
+							<label>ï¿½rgï¿½o Expedidor</label>
 							<bean:write name="inscricaoForm" property="identidadeOrgaoExpedidor" /> 
 						</TD>
 					</TR>
@@ -185,7 +185,7 @@
 				<table>
 					<TR>
 						<td>
-							<form action="https://mpag.bb.com.br/site/mpag/" method="post" name="pagamento">
+							<form action="https://www16.bancodobrasil.com.br/site/mpag/" method="post" name="pagamento">
 								<input type="hidden" name="idConv" value="<bean:write name="convenio"/>">
 								<input type="hidden" name="refTran" value="<bean:write name="refTrans"/>">
 								<input type="hidden" name="valor" value="<bean:write name="valor"/>">
