@@ -151,7 +151,15 @@ public class InscricaoAction extends DispatchAction {
 		request.setAttribute("prefeitura", f.getString("prefeitura"));
 		String codInscricao = String.valueOf(System.currentTimeMillis());		
 		request.setAttribute("refTrans", c.getNumeroConvenio() + codInscricao.substring(codInscricao.length() - 6, codInscricao.length() - 2) + Utilitarios.completaComZeros(inscricao.toString(), 6));
-		request.setAttribute("valor", funcao.getValor().toString() + "00");
+		String strFuncaoValor = funcao.getValor().toString();
+		if (strFuncaoValor.contains(".")) {
+			int idx = strFuncaoValor.indexOf('.');			
+			if ((strFuncaoValor.length() - idx) == 2) // valor tem somente 1 casa depois da virgula, então tem que completar com mais uma
+				 strFuncaoValor = Utilitarios.removePonto(strFuncaoValor) + "0";
+			request.setAttribute("valor", strFuncaoValor);
+		} else 
+			request.setAttribute("valor", funcao.getValor().toString() + "00");
+		
 		request.setAttribute("dataVenc", new SimpleDateFormat("ddMMyyyy").format(c.getDataVencimento()));
 		
 		if ( "BOLETO".equals(c.getTipoEmissao()) ) {
