@@ -101,7 +101,8 @@ public class InscricaoAction extends DispatchAction {
 		candidato.setBairro(f.getString("bairro"));
 		candidato.setComplemento(f.getString("complemento"));
 		candidato.setCidade(f.getString("cidade"));
-		candidato.setUf(f.getString("uf"));
+		String strUf = f.getString("uf");
+		candidato.setUf(strUf.trim().length() > 2 ? strUf.substring(0, 2) : strUf);
 		candidato.setCep(f.getString("cep"));
 		candidato.setTelefone("(" + f.getString("ddd") + ")" + f.getString("telefone"));
 		candidato.setNomePai(f.getString("nomePai"));
