@@ -179,12 +179,12 @@
 									<TD>2) Declara conhecer e aceitar todas as condições estabelecidas no edital.</TD>
 								</TR>
 								<TR style="border: 0px;">
-									<TD>Pagamento: Depósito bancário identificado em nome de 
+									<%-- <TD>Pagamento: Depósito bancário identificado em nome de 
 										<bean:write name="inscricaoForm" property="pagamentoNome"/>, no banco 
 										<bean:write name="inscricaoForm" property="pagamentoBanco"/>, agencia
 										<bean:write name="inscricaoForm" property="pagamentoAgencia"/>, na conta
 										<bean:write name="inscricaoForm" property="pagamentoConta"/>.
-								    </TD>
+								    </TD> --%>
 								</TR>
 								<TR>
 									<TD align="center">Local e Data: ___________________________, ____ de ________________ de <bean:write name="anoConcurso"/>.</TD>
