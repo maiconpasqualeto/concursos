@@ -11,7 +11,7 @@
 			<td>Estado de Mato Grosso do Sul</td>
 		</tr>
 		<tr align="center">
-			<td>Comissão Municipal de Concurso Público</td>
+			<td>Comissão Municipal de Processo Seletivo</td>
 		</tr>
 	</table>
 </td>
